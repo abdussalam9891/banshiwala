@@ -1,0 +1,230 @@
+import { HERO_SLIDES } from "../../constants/heroSlides.js";
+
+export function createHeroContent() {
+  return `
+    <div
+      class="
+        absolute
+        inset-0
+        z-30
+
+        flex
+        items-center
+      "
+    >
+
+      <div
+        class="
+          mx-auto
+          w-full
+          max-w-7xl
+
+          px-8
+          lg:px-14
+        "
+      >
+
+        ${HERO_SLIDES.map((slide, index) => {
+
+          const lines = slide.title.split("\n");
+
+          return `
+
+          <div
+
+            class="
+              hero-content
+
+              ${
+                index === 0
+                  ? "opacity-100 visible"
+                  : "opacity-0 invisible absolute"
+              }
+
+              max-w-[760px]
+
+              transition-opacity
+              duration-700
+            "
+
+            data-content="${index}"
+
+          >
+
+            <!-- Heading -->
+
+            <h1
+              class="
+                hero-title
+
+                flex
+                flex-col
+
+                overflow-hidden
+
+                font-serif
+
+                text-[62px]
+
+                font-semibold
+
+                leading-[0.92]
+
+                tracking-[-0.03em]
+
+                text-white
+
+                md:text-[82px]
+
+                xl:text-[96px]
+              "
+            >
+
+              ${lines
+                .map(
+                  line => `
+                  <span
+                    class="
+                      hero-title-line
+
+                      block
+
+                      overflow-hidden
+                    "
+                  >
+
+                    <span
+                      class="
+                        hero-title-word
+
+                        block
+                      "
+                    >
+
+                      ${line}
+
+                    </span>
+
+                  </span>
+                `
+                )
+                .join("")}
+
+            </h1>
+
+            <!-- Description -->
+
+            <p
+              class="
+                hero-description
+
+                mt-10
+
+                max-w-[600px]
+
+                text-[18px]
+
+                leading-8
+
+                text-white/80
+              "
+            >
+
+              ${slide.description}
+
+            </p>
+
+            <!-- CTA -->
+
+            <div
+              class="
+                hero-actions
+
+                mt-14
+              "
+            >
+
+              <a
+                href="${slide.button.href}"
+
+                class="
+                  hero-button
+
+                  group
+
+                  inline-flex
+
+                  items-center
+
+                  gap-4
+
+                  rounded-full
+
+                  border
+
+                  border-white/20
+
+                  bg-white/10
+
+                  px-8
+
+                  py-4
+
+                  text-sm
+
+                  font-medium
+
+                  uppercase
+
+                  tracking-[0.18em]
+
+                  text-white
+
+                  backdrop-blur-xl
+
+                  transition-all
+
+                  duration-500
+
+                  hover:-translate-y-1
+
+                  hover:border-primary
+
+                  hover:bg-primary
+
+                  hover:text-black
+
+                  hover:shadow-[0_20px_45px_rgba(160,121,54,.35)]
+                "
+              >
+
+                ${slide.button.text}
+
+                <span
+                  class="
+                    transition-transform
+                    duration-500
+
+                    group-hover:translate-x-2
+                  "
+                >
+
+                  →
+
+                </span>
+
+              </a>
+
+            </div>
+
+          </div>
+
+          `;
+
+        }).join("")}
+
+      </div>
+
+    </div>
+  `;
+}

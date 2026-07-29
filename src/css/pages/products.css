@@ -1,0 +1,114 @@
+/* ==========================================
+   PRODUCT CARD
+========================================== */
+
+.product-primary,
+.product-hover {
+  transition:
+    transform 700ms cubic-bezier(.22,.61,.36,1),
+    opacity 700ms cubic-bezier(.22,.61,.36,1),
+    filter 700ms cubic-bezier(.22,.61,.36,1);
+
+  will-change: transform, opacity;
+}
+
+/* Primary image */
+
+.group:hover .product-primary {
+  transform: scale(1.08);
+}
+
+/* Hover image */
+
+.group:hover .product-hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* ==========================================
+   Card Hover
+========================================== */
+
+.group article,
+.group {
+  transition:
+    transform .45s cubic-bezier(.22,.61,.36,1),
+    box-shadow .45s cubic-bezier(.22,.61,.36,1);
+}
+
+.group:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 24px 48px rgba(0,0,0,.08);
+}
+
+/* ==========================================
+   Wishlist
+========================================== */
+
+.wishlist-btn{
+  transition:
+    opacity .45s ease,
+    transform .45s cubic-bezier(.22,.61,.36,1),
+    background .3s ease;
+}
+
+.group:hover .wishlist-btn{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.wishlist-btn:hover{
+  background:#fff;
+}
+
+.wishlist-btn svg{
+  transition:
+    stroke .3s ease,
+    transform .3s ease;
+}
+
+.wishlist-btn:hover svg{
+  stroke:#A07936;
+  transform:scale(1.08);
+}
+
+/* ==========================================
+   Bestseller Badge
+========================================== */
+
+.product-badge{
+  letter-spacing:.22em;
+}
+
+/* ==========================================
+   Product Title
+========================================== */
+
+.product-title{
+  transition:color .3s ease;
+}
+
+.group:hover .product-title{
+  color:#A07936;
+}
+
+/* ==========================================
+   Price
+========================================== */
+
+.product-price{
+  letter-spacing:.03em;
+}
+
+/* ==========================================
+   Image Brightness
+========================================== */
+
+.group:hover .product-primary,
+.group:hover .product-hover{
+
+  filter:brightness(1.03);
+
+}
