@@ -9,7 +9,10 @@ export const PRODUCTS = [
     folder: "rings",
     name: "Classic Sterling Silver Ring",
     price: 2499,
+    originalPrice: 3299,
     isBestSeller: true,
+    isTrending: true,
+    isNewArrival: false,
   },
 
   {
@@ -18,7 +21,10 @@ export const PRODUCTS = [
     folder: "rings",
     name: "Minimal Band Ring",
     price: 1999,
+    originalPrice: 2499,
     isBestSeller: false,
+    isTrending: false,
+    isNewArrival: true,
   },
 
   {
@@ -27,7 +33,10 @@ export const PRODUCTS = [
     folder: "rings",
     name: "Matte Finish Ring",
     price: 2299,
+    originalPrice: 2899,
     isBestSeller: false,
+    isTrending: true,
+    isNewArrival: false,
   },
 
   {
@@ -36,7 +45,10 @@ export const PRODUCTS = [
     folder: "rings",
     name: "Hammered Silver Ring",
     price: 2799,
+    originalPrice: 3499,
     isBestSeller: true,
+    isTrending: false,
+    isNewArrival: true,
   },
 
   // =========================
@@ -49,7 +61,10 @@ export const PRODUCTS = [
     folder: "chains",
     name: "Cuban Silver Chain",
     price: 4499,
+    originalPrice: 5699,
     isBestSeller: true,
+    isTrending: true,
+    isNewArrival: false,
   },
 
   {
@@ -58,7 +73,10 @@ export const PRODUCTS = [
     folder: "chains",
     name: "Box Chain",
     price: 3999,
+    originalPrice: 4999,
     isBestSeller: false,
+    isTrending: false,
+    isNewArrival: true,
   },
 
   {
@@ -67,7 +85,10 @@ export const PRODUCTS = [
     folder: "chains",
     name: "Rope Chain",
     price: 5299,
+    originalPrice: 6499,
     isBestSeller: true,
+    isTrending: true,
+    isNewArrival: false,
   },
 
   {
@@ -76,7 +97,10 @@ export const PRODUCTS = [
     folder: "chains",
     name: "Snake Chain",
     price: 4899,
+    originalPrice: 5999,
     isBestSeller: false,
+    isTrending: false,
+    isNewArrival: true,
   },
 
   // =========================
@@ -89,7 +113,10 @@ export const PRODUCTS = [
     folder: "bracelets",
     name: "Classic Silver Bracelet",
     price: 3299,
+    originalPrice: 4199,
     isBestSeller: true,
+    isTrending: true,
+    isNewArrival: false,
   },
 
   {
@@ -98,7 +125,10 @@ export const PRODUCTS = [
     folder: "bracelets",
     name: "Cuban Bracelet",
     price: 3899,
+    originalPrice: 4799,
     isBestSeller: false,
+    isTrending: false,
+    isNewArrival: true,
   },
 
   {
@@ -107,7 +137,10 @@ export const PRODUCTS = [
     folder: "bracelets",
     name: "Rope Bracelet",
     price: 3599,
+    originalPrice: 4499,
     isBestSeller: false,
+    isTrending: true,
+    isNewArrival: false,
   },
 
   {
@@ -116,7 +149,10 @@ export const PRODUCTS = [
     folder: "bracelets",
     name: "Figaro Bracelet",
     price: 4199,
+    originalPrice: 5199,
     isBestSeller: true,
+    isTrending: false,
+    isNewArrival: true,
   },
 
   // =========================
@@ -129,7 +165,10 @@ export const PRODUCTS = [
     folder: "earrings",
     name: "Sterling Silver Stud",
     price: 1499,
+    originalPrice: 1999,
     isBestSeller: true,
+    isTrending: true,
+    isNewArrival: false,
   },
 
   {
@@ -138,7 +177,10 @@ export const PRODUCTS = [
     folder: "earrings",
     name: "Minimal Hoop",
     price: 1799,
+    originalPrice: 2299,
     isBestSeller: false,
+    isTrending: false,
+    isNewArrival: true,
   },
 
   {
@@ -147,7 +189,10 @@ export const PRODUCTS = [
     folder: "earrings",
     name: "Cross Stud",
     price: 1699,
+    originalPrice: 2199,
     isBestSeller: false,
+    isTrending: true,
+    isNewArrival: false,
   },
 
   {
@@ -156,6 +201,9 @@ export const PRODUCTS = [
     folder: "earrings",
     name: "Black Silver Hoop",
     price: 1999,
+    originalPrice: 2599,
     isBestSeller: true,
+    isTrending: false,
+    isNewArrival: true,
   },
 ];

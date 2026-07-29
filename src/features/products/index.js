@@ -6,9 +6,28 @@ function renderProducts(containerId, products, options = {}) {
 
   if (!container) return;
 
-  container.innerHTML = products
-    .map(product => createProductCard(product, options))
-    .join("");
+container.innerHTML = products
+  .map(
+    (product) => `
+      <div
+        class="
+          flex-shrink-0
+
+          w-[48%]
+          sm:w-[46%]
+          md:w-[31%]
+          lg:w-[24%]
+          xl:w-[23%]
+
+          snap-start
+        "
+      >
+        ${createProductCard(product)}
+      </div>
+    `
+  )
+  .join("");
+  
 }
 
 export function initProducts() {
