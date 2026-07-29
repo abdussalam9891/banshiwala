@@ -142,191 +142,274 @@ export function createFooterLinks() {
 
     <!-- Shop -->
 
-    <div>
+<div class="footer-section">
 
-      <h3
-        class="
-          mb-6
-          text-sm
-          font-semibold
-          uppercase
-          tracking-[0.18em]
-          text-white
-        "
-      >
-        Shop
-      </h3>
+  <button
+    class="
+      footer-toggle
+      flex
+      w-full
+      items-center
+      justify-between
+      py-2
+      lg:cursor-default
+    "
+  >
 
-      <ul
-        class="
-          space-y-4
-          text-sm
-        "
-      >
-        ${shopLinks}
-      </ul>
+    <span
+      class="
+        text-sm
+        font-semibold
+        uppercase
+        tracking-[0.18em]
+        text-white
+      "
+    >
+      Shop
+    </span>
 
-    </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      class="
+        footer-chevron
+        h-5
+        w-5
+        text-white/60
+        transition-transform
+        duration-300
+        lg:hidden
+      "
+    >
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+
+  </button>
+
+  <ul
+    class="
+      footer-content
+      hidden
+      space-y-4
+      pt-5
+      text-sm
+      lg:block
+    "
+  >
+
+      ${shopLinks}
+
+  </ul>
+
+</div>
 
     <!-- Customer Care -->
 
-    <div>
+    <!-- Customer Care -->
 
-      <h3
-        class="
-          mb-6
-          text-sm
-          font-semibold
-          uppercase
-          tracking-[0.18em]
-          text-white
-        "
+<div class="footer-section">
+
+  <button
+    class="
+      footer-toggle
+      flex
+      w-full
+      items-center
+      justify-between
+      py-2
+      lg:cursor-default
+    "
+  >
+
+    <span
+      class="
+        text-sm
+        font-semibold
+        uppercase
+        tracking-[0.18em]
+        text-white
+      "
+    >
+      Customer Care
+    </span>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      class="
+        footer-chevron
+        h-5
+        w-5
+        text-white/60
+        transition-transform
+        duration-300
+        lg:hidden
+      "
+    >
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+
+  </button>
+
+  <ul
+    class="
+      footer-content
+      hidden
+      space-y-4
+      pt-5
+      text-sm
+      lg:block
+    "
+  >
+
+    <li>
+      <a
+        href="/pages/contact.html"
+        class="text-white/60 transition hover:text-[#A07936]"
       >
-        Customer Care
-      </h3>
+        Contact Us
+      </a>
+    </li>
 
-      <ul
-        class="
-          space-y-4
-          text-sm
-        "
+    <li>
+      <a
+        href="/pages/shipping-policy.html"
+        class="text-white/60 transition hover:text-[#A07936]"
       >
+        Shipping Policy
+      </a>
+    </li>
 
-        <li>
-          <a
-            href="/pages/contact.html"
-            class="
-              text-white/60
-              transition
-              hover:text-[#A07936]
-            "
-          >
-            Contact Us
-          </a>
-        </li>
+    <li>
+      <a
+        href="/pages/refund-policy.html"
+        class="text-white/60 transition hover:text-[#A07936]"
+      >
+        Returns & Refunds
+      </a>
+    </li>
 
-        <li>
-          <a
-            href="/pages/shipping-policy.html"
-            class="
-              text-white/60
-              transition
-              hover:text-[#A07936]
-            "
-          >
-            Shipping Policy
-          </a>
-        </li>
+    <li>
+      <a
+        href="/pages/faq.html"
+        class="text-white/60 transition hover:text-[#A07936]"
+      >
+        FAQs
+      </a>
+    </li>
 
-        <li>
-          <a
-            href="/pages/refund-policy.html"
-            class="
-              text-white/60
-              transition
-              hover:text-[#A07936]
-            "
-          >
-            Returns & Refunds
-          </a>
-        </li>
+  </ul>
 
-        <li>
-          <a
-            href="/pages/faq.html"
-            class="
-              text-white/60
-              transition
-              hover:text-[#A07936]
-            "
-          >
-            FAQs
-          </a>
-        </li>
+</div>
 
-      </ul>
-
-    </div>
 
     <!-- Company -->
 
-    <div>
+  <!-- Company -->
 
-      <h3
-        class="
-          mb-6
-          text-sm
-          font-semibold
-          uppercase
-          tracking-[0.18em]
-          text-white
-        "
+<div class="footer-section">
+
+  <button
+    class="
+      footer-toggle
+      flex
+      w-full
+      items-center
+      justify-between
+      py-2
+      lg:cursor-default
+    "
+  >
+
+    <span
+      class="
+        text-sm
+        font-semibold
+        uppercase
+        tracking-[0.18em]
+        text-white
+      "
+    >
+      Company
+    </span>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      class="
+        footer-chevron
+        h-5
+        w-5
+        text-white/60
+        transition-transform
+        duration-300
+        lg:hidden
+      "
+    >
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+
+  </button>
+
+  <ul
+    class="
+      footer-content
+      hidden
+      space-y-4
+      pt-5
+      text-sm
+      lg:block
+    "
+  >
+
+    <li>
+      <a
+        href="/pages/about.html"
+        class="text-white/60 transition hover:text-[#A07936]"
       >
-        Company
-      </h3>
+        About Us
+      </a>
+    </li>
 
-      <ul
-        class="
-          space-y-4
-          text-sm
-        "
+    <li>
+      <a
+        href="/pages/contact.html"
+        class="text-white/60 transition hover:text-[#A07936]"
       >
+        Contact
+      </a>
+    </li>
 
-        <li>
-          <a
-            href="/pages/about.html"
-            class="
-              text-white/60
-              transition
-              hover:text-[#A07936]
-            "
-          >
-            About Us
-          </a>
-        </li>
+    <li>
+      <a
+        href="/pages/privacy-policy.html"
+        class="text-white/60 transition hover:text-[#A07936]"
+      >
+        Privacy Policy
+      </a>
+    </li>
 
-        <li>
-          <a
-            href="/pages/contact.html"
-            class="
-              text-white/60
-              transition
-              hover:text-[#A07936]
-            "
-          >
-            Contact
-          </a>
-        </li>
+    <li>
+      <a
+        href="/pages/terms-and-conditions.html"
+        class="text-white/60 transition hover:text-[#A07936]"
+      >
+        Terms & Conditions
+      </a>
+    </li>
 
-        <li>
-          <a
-            href="/pages/privacy-policy.html"
-            class="
-              text-white/60
-              transition
-              hover:text-[#A07936]
-            "
-          >
-            Privacy Policy
-          </a>
-        </li>
+  </ul>
 
-        <li>
-          <a
-            href="/pages/terms-and-conditions.html"
-            class="
-              text-white/60
-              transition
-              hover:text-[#A07936]
-            "
-          >
-            Terms & Conditions
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
+</div>
 
   </div>
 

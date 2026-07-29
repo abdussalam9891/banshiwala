@@ -1,57 +1,46 @@
+import { FAQS } from "../../constants/faq.js";
+import { createFaqCard } from "../../components/faq/faqCard.js";
+import { initAccordion } from "./accordion.js";
+
 export function initCategoryFilter() {
-
-    const buttons =
-        document.querySelectorAll(".faq-filter");
-
-    const items =
-        document.querySelectorAll(".faq-item");
+    const buttons = document.querySelectorAll(".faq-filter");
+    const container = document.getElementById("faqContainer");
 
     buttons.forEach(button => {
-
         button.addEventListener("click", () => {
 
             buttons.forEach(btn => {
-
                 btn.classList.remove(
-                    "bg-[#181818]",
+                    "bg-black",
                     "text-white",
-                    "border-[#181818]"
+                    "border-black"
                 );
 
                 btn.classList.add(
-                    "bg-white"
+                    "bg-white",
+                    "text-[#555]",
+                    "border-[#E8E2DA]"
                 );
-
             });
 
             button.classList.add(
-                "bg-[#181818]",
+                "bg-black",
                 "text-white",
-                "border-[#181818]"
+                "border-black"
             );
 
-            const category =
-                button.dataset.category;
+            const category = button.dataset.category;
 
-            items.forEach(item => {
+            const faqs =
+                category === "all"
+                    ? FAQS.filter(faq => faq.featured)
+                    : FAQS.filter(faq => faq.category === category);
 
-                if (
-                    category === "all" ||
-                    item.dataset.category === category
-                ) {
+            container.innerHTML = faqs
+                .map(createFaqCard)
+                .join("");
 
-                    item.style.display = "";
-
-                } else {
-
-                    item.style.display = "none";
-
-                }
-
-            });
-
+            initAccordion();
         });
-
     });
-
 }

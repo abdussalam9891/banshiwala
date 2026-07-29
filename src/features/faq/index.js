@@ -1,12 +1,14 @@
+import { renderFaqs } from "./renderFaqs.js";
 import { initAccordion } from "./accordion.js";
-import { initSearch } from "./search.js";
+ 
 import { initCategoryFilter } from "./filter.js";
 
 export function initFAQ() {
 
+    renderFaqs();
+
     initAccordion();
 
-    initSearch();
 
     initCategoryFilter();
 

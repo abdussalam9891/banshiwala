@@ -46,67 +46,25 @@ export function createNewsletter() {
 
     <!-- Right -->
 
-    <form
-      id="newsletterForm"
-      class="
-        flex
-        w-full
-        max-w-xl
-        flex-col
-        gap-3
-        sm:flex-row
-      "
+  <form id="newsletterForm" class="w-full max-w-lg">
+  <div class="flex overflow-hidden border border-white/15">
+    <input
+      id="newsletterEmail"
+      type="email"
+      placeholder="Enter your email"
+      class="h-14 flex-1 bg-[#252525] px-5 text-white placeholder:text-white/40 outline-none"
+    />
+
+    <button
+      type="submit"
+      class="bg-[#A07936] px-8 text-sm font-medium uppercase tracking-[0.12em] text-black transition hover:bg-[#B88B45]"
     >
-
-      <input
-        id="newsletterEmail"
-        type="email"
-        required
-        autocomplete="email"
-        placeholder="Enter your email"
-        class="
-          h-14
-          flex-1
-          rounded-full
-          border
-          border-white/15
-          bg-transparent
-          px-6
-          text-white
-          placeholder:text-white/40
-          outline-none
-          transition-all
-          duration-300
-          focus:border-[#A07936]
-        "
-      />
-
-      <button
-        type="submit"
-        class="
-          h-14
-          rounded-full
-          border
-          border-[#A07936]
-          bg-transparent
-          px-8
-          text-sm
-          font-medium
-          uppercase
-          tracking-[0.18em]
-          text-[#A07936]
-          transition-all
-          duration-300
-          hover:bg-[#A07936]
-          hover:text-black
-        "
-      >
-        Subscribe
-      </button>
-
-    </form>
-
+      Subscribe
+    </button>
   </div>
+</form>
+
+</div>
 </section>
 `;
 }
