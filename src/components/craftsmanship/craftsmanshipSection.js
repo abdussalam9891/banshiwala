@@ -11,27 +11,29 @@ export function createCraftsmanshipSection() {
   "
 >
 
-  <div
-    class="
-      mx-auto
+ <div
+  class="
+    mx-auto
 
-      max-w-7xl
+    w-full
+    max-w-[1600px]
 
-      px-4
-      lg:px-6
-    "
-  >
-
+    px-5
+    sm:px-6
+    lg:px-10
+    xl:px-14
+  "
+>
     <div
       class="
         grid
 
         items-center
 
-        gap-10
-        lg:gap-16
+        gap-6
+lg:gap-8
 
-        lg:grid-cols-2
+        lg:grid-cols-[1.6fr_1fr]
       "
     >
 
@@ -87,85 +89,186 @@ export function createCraftsmanshipSection() {
 
       <!-- Content -->
 
-      <div class="reveal reveal-right">
+     <!-- Content -->
 
-
-
-        <h2
-          class="
-            mt-5
-
-            font-serif
-
-            text-4xl
-            leading-tight
-
-            text-[#181818]
-
-            lg:text-6xl
-          "
-        >
-          Sterling Silver,
-          <br />
-          Crafted To Last.
-        </h2>
-
-        <p
-          class="
-            mt-8
-
-            max-w-xl
-
-            text-lg
-
-            leading-8
-
-            text-[#666]
-          "
-        >
-          Every Banshiwala piece is handcrafted from certified 925 sterling
-          silver, combining timeless craftsmanship with modern design.
-          Built for everyday confidence and made to stay with you for years.
-        </p>
-
-       <a
-  href="/pages/about.html"
+<div
   class="
-    inline-flex
-    items-center
-    gap-3
+    reveal
+    reveal-right
 
-    font-medium
-
-    tracking-[0.12em]
-
-    uppercase
-
-    text-[#181818]
+    group
 
     transition-all
-    duration-300
+    duration-500
 
-    hover:gap-5
+    hover:-translate-y-1
   "
 >
-    Discover More
+
+  <!-- Eyebrow -->
+
+  <span
+    class="
+      inline-block
+
+      text-xs
+
+      font-medium
+
+      uppercase
+
+      tracking-[0.35em]
+
+      text-[#A07936]
+
+      transition-all
+      duration-500
+
+      group-hover:tracking-[0.42em]
+    "
+  >
+    Crafted With Precision
+  </span>
+
+  <!-- Heading -->
+
+  <h2
+    class="
+      mt-5
+
+      font-serif
+
+      text-4xl
+      lg:text-6xl
+
+      leading-tight
+
+      text-[#181818]
+
+      transition-all
+      duration-500
+
+      group-hover:translate-x-2
+    "
+  >
+    Sterling Silver,
+    <br />
+    Crafted To Last.
+  </h2>
+
+  <!-- Description -->
+
+  <p
+    class="
+      mt-8
+
+      max-w-xl
+
+      text-lg
+
+      leading-8
+
+      text-[#666]
+
+      transition-all
+      duration-500
+      delay-75
+
+      group-hover:translate-x-2
+    "
+  >
+    Every Banshiwala piece is handcrafted from certified 925 sterling
+    silver, combining timeless craftsmanship with modern design.
+    Built for everyday confidence and made to stay with you for years.
+  </p>
+
+  <!-- CTA -->
+
+ <a
+  href="/pages/about.html"
+  class="
+    group
+
+    relative
+
+    inline-flex
+
+    items-center
+    justify-center
+
+    overflow-hidden
+
+    border
+    border-[#A07936]
+
+    px-8
+    py-4
+
+    text-sm
+    font-medium
+    uppercase
+    tracking-[0.18em]
+
+    text-[#181818]
+  "
+>
 
     <span
       class="
-        h-px
-        w-10
+        absolute
+        inset-0
+
+        origin-left
+
+        scale-x-0
 
         bg-[#A07936]
 
-        transition-all
-        duration-300
+        transition-transform
+        duration-500
+        ease-out
 
-        group-hover:w-14
+        group-hover:scale-x-100
       "
     ></span>
+
+    <span
+      class="
+        relative
+        z-10
+
+        flex
+        items-center
+        gap-3
+
+        transition-colors
+        duration-300
+
+        group-hover:text-white
+      "
+    >
+        Discover More
+
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+        </svg>
+
+    </span>
+
 </a>
-      </div>
+
+</div>
 
     </div>
 

@@ -4,6 +4,8 @@ import { renderWhyChooseUs } from "../features/whyChooseUs/index.js";
 import { initCollections } from "../features/collections/index.js";
 import { initTestimonials } from "../features/testimonials/index.js";
 import { initCraftsmanship } from "../features/craftsmanship/index.js";
+import { initMarquee } from "../features/marquee/index.js";
+import { initShowcase } from "../features/showcase/index.js";
 
 export function initHomePage() {
 
@@ -18,6 +20,9 @@ export function initHomePage() {
         createHomeFaq();
 
         initCollections();
+        initShowcase();
+
+        initMarquee();
 
         renderWhyChooseUs();
          initCraftsmanship();

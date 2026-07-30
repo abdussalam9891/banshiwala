@@ -9,25 +9,27 @@ function renderProducts(containerId, products, options = {}) {
 container.innerHTML = products
   .map(
     (product) => `
-      <div
-        class="
-          flex-shrink-0
+     <div
+  class="
+    flex-shrink-0
 
-          w-[48%]
-          sm:w-[46%]
-          md:w-[31%]
-          lg:w-[24%]
-          xl:w-[23%]
+    mt-2
 
-          snap-start
-        "
-      >
+    w-[48%]
+    sm:w-[46%]
+    md:w-[31%]
+    lg:w-[24%]
+    xl:w-[23%]
+
+    snap-start
+  "
+>
         ${createProductCard(product)}
       </div>
     `
   )
   .join("");
-  
+
 }
 
 export function initProducts() {

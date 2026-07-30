@@ -144,77 +144,110 @@ export function createHeroContent() {
               "
             >
 
-              <a
-                href="${slide.button.href}"
+             <a
+  href="${slide.button.href}"
 
-                class="
-                  hero-button
+  class="
+    hero-button
 
-                  group
+    group
 
-                  inline-flex
+    relative
 
-                  items-center
+    inline-flex
+    items-center
+    justify-center
 
-                  gap-4
+    gap-4
 
-                  rounded-full
+    overflow-hidden
 
-                  border
+    rounded-full
 
-                  border-white/20
+    border
+    border-white/20
 
-                  bg-white/10
+    bg-white/10
 
-                  px-8
+    px-8
+    py-4
 
-                  py-4
+    text-sm
+    font-medium
 
-                  text-sm
+    uppercase
 
-                  font-medium
+    tracking-[0.18em]
 
-                  uppercase
+    text-white
 
-                  tracking-[0.18em]
+    backdrop-blur-xl
 
-                  text-white
+    transition-all
+    duration-500
 
-                  backdrop-blur-xl
+    hover:-translate-y-1
+    hover:border-primary
+    hover:shadow-[0_20px_45px_rgba(160,121,54,.35)]
+  "
+>
 
-                  transition-all
+  <!-- Animated Background -->
+  <span
+    class="
+      absolute
+      inset-0
 
-                  duration-500
+      origin-left
 
-                  hover:-translate-y-1
+      scale-x-0
 
-                  hover:border-primary
+      rounded-full
 
-                  hover:bg-primary
+      bg-primary
 
-                  hover:text-black
+      transition-transform
+      duration-700
+      ease-[cubic-bezier(0.22,1,0.36,1)]
 
-                  hover:shadow-[0_20px_45px_rgba(160,121,54,.35)]
-                "
-              >
+      group-hover:scale-x-100
+    "
+  ></span>
 
-                ${slide.button.text}
+  <!-- Content -->
+  <span
+    class="
+      relative
+      z-10
 
-                <span
-                  class="
-                    transition-transform
-                    duration-500
+      inline-flex
+      items-center
 
-                    group-hover:translate-x-2
-                  "
-                >
+      gap-4
 
-                  →
+      transition-colors
+      duration-300
 
-                </span>
+      group-hover:text-black
+    "
+  >
 
-              </a>
+    ${slide.button.text}
 
+    <span
+      class="
+        transition-transform
+        duration-500
+
+        group-hover:translate-x-2
+      "
+    >
+      →
+    </span>
+
+  </span>
+
+</a>
             </div>
 
           </div>

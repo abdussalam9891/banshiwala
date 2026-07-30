@@ -1,6 +1,7 @@
 import { createDesktopNav } from "./desktopNav.js";
 import { createMobileNav } from "./mobileNav.js";
 import { createSearchOverlay } from "./searchOverlay.js";
+import { createAnnouncementBar } from "../announcement/announcementBar.js";
 
 export function createNavbar(theme = "light") {
   return `
@@ -20,21 +21,7 @@ export function createNavbar(theme = "light") {
 
       <!-- Announcement -->
 
-      <div
-        class="
-          bg-[#111111]
-          border-b
-          border-white/10
-          py-2
-          text-center
-          text-xs
-          uppercase
-          tracking-[0.2em]
-          text-[#A07936]
-        "
-      >
-        Free Shipping on Orders ₹999+
-      </div>
+     ${createAnnouncementBar()}
 
       <!-- Desktop Navigation -->
 

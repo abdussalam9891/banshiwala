@@ -142,7 +142,6 @@ export function createProductCard(product, options = {}) {
 
 <div
   class="
-    overflow-hidden
     rounded-sm
 
     bg-gradient-to-b
@@ -153,7 +152,7 @@ export function createProductCard(product, options = {}) {
     duration-500
 
     group-hover:shadow-[0_24px_55px_rgba(0,0,0,.08)]
-  "
+"
 >
 
   <div
@@ -222,35 +221,34 @@ export function createProductCard(product, options = {}) {
   product.isBestSeller
     ? `
       <span
-        class="
-          absolute
-          top-0
-          left-0
-          z-50
+  class="
+    absolute
+    top-4
+    left-4
+    z-20
 
-          inline-flex
-          items-center
-          justify-center
+    inline-flex
+    items-center
+    justify-center
 
+    rounded-md
 
+    bg-[#111111]
+    text-white
 
-          bg-[#181818]
+    px-3
+    py-1.5
 
-          px-1.5
-          py-1.5
+    text-[10px]
+    font-semibold
+    uppercase
+    tracking-[0.22em]
 
-          text-[9px]
-          font-medium
-          uppercase
-          tracking-[0.18em]
-
-          text-white
-
-          shadow-[0_8px_20px_rgba(0,0,0,.18)]
-        "
-      >
-        BEST SELLER
-      </span>
+    shadow-[0_4px_12px_rgba(0,0,0,.12)]
+  "
+>
+  BEST SELLER
+</span>
     `
     : ""
 }
@@ -261,8 +259,8 @@ ${
       <span
         class="
           absolute
-          bottom-0
-          left-0
+          bottom-4
+          left-4
           z-50
 
           inline-flex
@@ -273,7 +271,7 @@ ${
 
           bg-[#181818]
 
-          px-1.5
+          px-3
           py-1.5
 
           text-[9px]

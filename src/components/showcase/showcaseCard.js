@@ -1,3 +1,171 @@
+
+import { getProductImages } from "../../utils/getProductImages.js";
+
+function createStars(rating) {
+  return `
+    <div class="flex items-center gap-0.5 text-[#C8963E]">
+
+      ${Array.from({ length: 5 })
+        .map(
+          (_, index) => `
+            <svg
+              class="w-3 h-3 ${
+                index < Math.round(rating)
+                  ? "fill-current"
+                  : "fill-none stroke-current"
+              }"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-width="1.8"
+                d="M12 17.3L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+              />
+            </svg>
+          `
+        )
+        .join("")}
+
+    </div>
+  `;
+}
+
+function createBadge(badge) {
+  if (!badge) return "";
+
+  const styles = {
+    BESTSELLER: "bg-[#111111] text-white",
+    NEW: "bg-primary text-white",
+    LIMITED: "bg-[#C8963E] text-white",
+  };
+
+  return `
+    <span
+      class="
+        absolute
+
+        top-4
+        left-4
+
+        z-20
+
+        inline-flex
+
+        items-center
+        justify-center
+
+        rounded-md
+
+        px-3
+        py-1.5
+
+        text-[10px]
+
+        font-semibold
+
+        uppercase
+
+        tracking-[0.22em]
+
+        shadow-[0_4px_12px_rgba(0,0,0,.12)]
+
+        ${styles[badge] || styles.BESTSELLER}
+      "
+    >
+      ${badge}
+    </span>
+  `;
+}
+
+function createIcon(type, delay = 0) {
+  const icons = {
+    heart: `
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M12 21s-7-4.4-9.5-8.3C.4 9.4 2.2 5.5 6.2 5.5c2 0 3.2 1 3.8 2 .6-1 1.8-2 3.8-2 4 0 5.8 3.9 3.7 7.2C19 16.6 12 21 12 21z"
+      />
+    `,
+
+    eye: `
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12zm10 3a3 3 0 100-6 3 3 0 000 6z"
+      />
+    `,
+
+    compare: `
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.8"
+        d="M7 7h12M7 7l3-3M7 7l3 3M17 17H5m12 0-3-3m3 3-3 3"
+      />
+    `,
+  };
+
+  return `
+<button
+style="transition-delay:${delay}ms"
+
+class="
+translate-x-5
+opacity-0
+
+transition-all
+duration-500
+ease-[cubic-bezier(0.22,1,0.36,1)]
+
+group-hover:translate-x-0
+group-hover:opacity-100
+
+flex
+
+h-8
+w-8
+
+sm:h-9
+sm:w-9
+
+items-center
+justify-center
+
+rounded-full
+
+bg-white
+
+text-[#181818]
+
+shadow-[0_8px_20px_rgba(0,0,0,.10)]
+
+hover:bg-primary
+hover:text-white
+"
+>
+
+<svg
+class="
+h-4
+w-4
+
+sm:h-5
+sm:w-5
+"
+fill="none"
+stroke="currentColor"
+viewBox="0 0 24 24"
+>
+
+${icons[type]}
+
+</svg>
+
+</button>
+`;
+}
+
 export function createShowcaseCard(product) {
   const images = getProductImages(product);
 
@@ -5,6 +173,7 @@ export function createShowcaseCard(product) {
 <article
   class="
     group
+    reveal
 
     flex-shrink-0
 
@@ -91,9 +260,8 @@ export function createShowcaseCard(product) {
 
         object-contain
 
-        p-2
-        sm:p-3
-        lg:p-4
+        p-0
+
 
         transition-all
         duration-500
@@ -121,9 +289,7 @@ export function createShowcaseCard(product) {
 
         object-contain
 
-        p-2
-        sm:p-3
-        lg:p-4
+        p-0
 
         opacity-0
 
@@ -304,3 +470,4 @@ export function createShowcaseCard(product) {
 `;
 
 }
+
