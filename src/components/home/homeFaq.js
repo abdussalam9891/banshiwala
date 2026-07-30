@@ -25,18 +25,7 @@ export function createHomeFaq() {
 
     <div class="text-center">
 
-      <p
-        class="
-          text-sm
-          font-medium
-          uppercase
-          tracking-[0.18em]
-          text-[#A07936]
-        "
-      >
-        Frequently Asked Questions
-      </p>
-
+       
       <h2
         class="
           mt-4

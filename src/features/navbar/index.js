@@ -12,7 +12,9 @@ export function initNavbar() {
     return;
   }
 
-  container.innerHTML = createNavbar();
+ const theme = container.dataset.theme || "light";
+
+container.innerHTML = createNavbar(theme);
 
   initScroll();
   initActiveLink();

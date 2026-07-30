@@ -1,6 +1,6 @@
 import { createNewsletter } from "./newsletter.js";
 import { createFooterLinks } from "./footerLinks.js";
- 
+
 import { createCopyright } from "./copyright.js";
 
 export function createFooter() {
@@ -11,10 +11,11 @@ export function createFooter() {
     mt-24
     bg-[#181818]
     text-white
+    
   "
 >
 
-  ${createNewsletter()}
+
 
   ${createFooterLinks()}
 

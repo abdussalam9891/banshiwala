@@ -13,7 +13,10 @@ export function createCollectionCard(collection) {
       overflow-hidden
       rounded-sm
 
-      bg-[#F5F2ED]
+      reveal
+      reveal-left
+
+
 
       transition-all
       duration-500

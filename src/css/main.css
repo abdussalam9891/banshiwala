@@ -1,3 +1,7 @@
+@import "../features/animations/animations.css";
+
+
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -5,4 +9,14 @@
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+
+
+.navbar-light {
+  color: #181818;
+}
+
+.navbar-dark {
+  color: #fff;
 }

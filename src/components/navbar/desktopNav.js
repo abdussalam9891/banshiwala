@@ -1,35 +1,61 @@
 import { NAVIGATION } from "../../constants/navigation.js";
 
-export function createDesktopNav() {
+
+
+
+
+export function createDesktopNav(theme = "light") {
+
+
+
+    const textColor =
+    theme === "dark"
+      ? "text-[#181818]"
+      : "text-white";
+
+  const navTextColor =
+    theme === "dark"
+      ? "text-[#181818]/90"
+      : "text-white/90";
+
+  const hoverBg =
+    theme === "dark"
+      ? "hover:bg-black/5"
+      : "hover:bg-white/5";
+
+
+
+
   const navLinks = NAVIGATION.map(
     (item) => `
       <li>
         <a
           href="${item.href}"
           data-nav="${item.slug}"
-          class="
-            relative
-            py-2
-            text-[13px]
-            font-medium
-            uppercase
-            tracking-[0.18em]
-            text-white/90
-            transition-colors
-            duration-300
-            hover:text-[#A07936]
+         class="
+  relative
+  py-2
+  text-[13px]
+  font-medium
+  uppercase
+  tracking-[0.18em]
+  navbar-text
+  ${navTextColor}
+  transition-colors
+  duration-300
+  hover:text-[#A07936]
 
-            after:absolute
-            after:left-0
-            after:bottom-0
-            after:h-[2px]
-            after:w-0
-            after:bg-[#A07936]
-            after:transition-all
-            after:duration-300
+  after:absolute
+  after:left-0
+  after:bottom-0
+  after:h-[2px]
+  after:w-0
+  after:bg-[#A07936]
+  after:transition-all
+  after:duration-300
 
-            hover:after:w-full
-          "
+  hover:after:w-full
+"
         >
           ${item.label}
         </a>
@@ -72,26 +98,26 @@ export function createDesktopNav() {
         flex
         items-center
         justify-center
-        text-white
+        navbar-text
+        ${textColor}
         transition
         hover:text-[#A07936]
         lg:hidden
       "
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        stroke-width="1.8"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M4 6h16M4 12h16M4 18h16"
-        />
-      </svg>
+     <svg
+  xmlns="http://www.w3.org/2000/svg"
+  class="h-7 w-7"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+>
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <line x1="4" y1="18" x2="15" y2="18" />
+</svg>
     </button>
 
     <!-- Logo -->
@@ -104,12 +130,72 @@ export function createDesktopNav() {
         font-serif
         uppercase
         tracking-[0.18em]
-        text-white
+        navbar-text
+       ${textColor}
         transition
         hover:text-[#A07936]
       "
     >
-      BANSHIWALA
+      <svg
+  width="50"
+  height="50"
+  viewBox="0 0 128 128"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+
+  <!-- Outer Ring -->
+  <circle
+    cx="64"
+    cy="64"
+    r="54"
+    stroke="#A07936"
+    stroke-width="2"
+  />
+
+  <!-- Top Petal -->
+  <path
+    d="M64 28
+       C74 40 74 53 64 61
+       C54 53 54 40 64 28Z"
+    fill="#A07936"
+  />
+
+  <!-- Left Petal -->
+  <path
+    d="M42 49
+       C53 49 59 57 60 67
+       C49 67 41 60 42 49Z"
+    fill="#A07936"
+    opacity=".95"
+  />
+
+  <!-- Right Petal -->
+  <path
+    d="M86 49
+       C75 49 69 57 68 67
+       C79 67 87 60 86 49Z"
+    fill="#A07936"
+    opacity=".95"
+  />
+
+  <!-- Bottom Petal -->
+  <path
+    d="M64 92
+       C54 82 54 70 64 63
+       C74 70 74 82 64 92Z"
+    fill="#A07936"
+  />
+
+  <!-- Center Gem -->
+  <circle
+    cx="64"
+    cy="64"
+    r="8"
+    fill="#181818"
+  />
+
+</svg>
     </a>
 
     <!-- Desktop Navigation -->
@@ -150,10 +236,12 @@ export function createDesktopNav() {
           items-center
           justify-center
           rounded-full
-          text-white
+          navbar-text
+          ${textColor}
+${hoverBg}
           transition-all
           duration-300
-          hover:bg-white/5
+
           hover:text-[#A07936]
         "
       >
@@ -191,10 +279,12 @@ export function createDesktopNav() {
           items-center
           justify-center
           rounded-full
-          text-white
+          navbar-text
+          ${textColor}
+${hoverBg}
           transition-all
           duration-300
-          hover:bg-white/5
+
           hover:text-[#A07936]
         "
       >
@@ -249,10 +339,12 @@ export function createDesktopNav() {
           items-center
           justify-center
           rounded-full
-          text-white
+          navbar-text
+          ${textColor}
+${hoverBg}
           transition-all
           duration-300
-          hover:bg-white/5
+
           hover:text-[#A07936]
         "
       >

@@ -1,86 +1,149 @@
-export function createProductCard(product, options = {}) {
-  const {
-    showWishlistButton = true,
-    showRemoveButton = false,
-    showMoveToCart = false,
-  } = options;
+import { NAVIGATION } from "../../constants/navigation.js";
 
-  const productId = product.id ?? product._id;
+export function createMobileNav() {
+  const navigation = NAVIGATION.map(
+    (item) => `
+      <li>
+        <a
+          href="${item.href}"
+          data-nav="${item.slug}"
+          class="
+            group
+            flex
+            items-center
+            justify-between
+            rounded-2xl
+            px-5
+            py-4
+            text-sm
+            font-medium
+            uppercase
+            tracking-[0.15em]
+            text-white
+            transition-all
+            duration-300
+            hover:bg-white/5
+            hover:text-[#A07936]
+          "
+        >
+          <span>${item.label}</span>
 
-  const primaryImage = `/src/assets/${product.folder}/${product.imageId}-1.webp`;
-  const hoverImage = `/src/assets/${product.folder}/${product.imageId}-2.webp`;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="
+              h-5
+              w-5
+              transition-transform
+              duration-300
+              group-hover:translate-x-1
+            "
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 6l6 6-6 6"
+            />
+          </svg>
 
-  const hasDiscount =
-    product.originalPrice &&
-    product.originalPrice > product.price;
-
-  const discountPercent = hasDiscount
-    ? Math.round(
-        ((product.originalPrice - product.price) /
-          product.originalPrice) *
-          100
-      )
-    : null;
+        </a>
+      </li>
+    `
+  ).join("");
 
   return `
-
-<article
-  data-product-id="${productId}"
+<div
+  id="mobileDrawer"
   class="
-    group
-    relative
-    w-full
+    fixed
+    inset-0
+    z-[999]
+    hidden
   "
 >
 
-  ${
-    showRemoveButton
-      ? `
-      <button
-        data-id="${productId}"
+  <!-- Backdrop -->
+
+  <div
+    id="mobileBackdrop"
+    class="
+      absolute
+      inset-0
+      bg-black/60
+      backdrop-blur-sm
+      opacity-0
+      transition-opacity
+      duration-300
+    "
+  ></div>
+
+  <!-- Drawer -->
+
+  <aside
+    id="mobilePanel"
+    class="
+      absolute
+      left-4
+      top-4
+      bottom-4
+
+      w-[340px]
+      max-w-[calc(100vw-2rem)]
+
+      overflow-y-auto
+
+      rounded-3xl
+
+      border
+      border-white/10
+
+      bg-[#181818]
+
+      shadow-2xl
+
+      -translate-x-[120%]
+
+      transition-transform
+      duration-300
+    "
+  >
+
+    <!-- Header -->
+
+    <div
+      class="
+        flex
+        items-center
+        justify-between
+
+        border-b
+        border-white/10
+
+        px-6
+        py-6
+      "
+    >
+
+      <h2
         class="
-          absolute
-          top-4
-          right-4
-          z-40
-
-          flex
-          h-10
-          w-10
-          items-center
-          justify-center
-
-          rounded-full
-
-          bg-white
-
-          shadow-lg
-
-          transition-all
-          duration-300
-
-          hover:bg-red-50
+          text-lg
+          font-semibold
+          uppercase
+          tracking-[0.18em]
+          text-white
         "
       >
-        ✕
-      </button>
-    `
-      : ""
-  }
+        Menu
+      </h2>
 
-  ${
-    showWishlistButton
-      ? `
       <button
-        data-id="${productId}"
+        id="closeDrawerBtn"
+        type="button"
+        aria-label="Close Menu"
         class="
-          wishlist-btn
-
-          absolute
-          top-2
-          right-2
-          z-40
-
           flex
           h-10
           w-10
@@ -89,334 +152,393 @@ export function createProductCard(product, options = {}) {
 
           rounded-full
 
+          text-white
 
+          transition
 
-
-
-
-          opacity-70
-          scale-90
-
-          transition-all
-          duration-500
-
-          group-hover:opacity-100
-          group-hover:scale-100
+          hover:bg-white/5
+          hover:text-[#A07936]
         "
       >
 
         <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
           viewBox="0 0 24 24"
+          stroke="currentColor"
           stroke-width="1.8"
-          class="
-            h-9
-            w-9
-
-            fill-none
-            stroke-[#181818]
-
-            transition-colors
-            duration-300
-
-            group-hover:stroke-[#A07936]
-          "
         >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+            d="M6 6l12 12M18 6L6 18"
           />
         </svg>
 
       </button>
-    `
-      : ""
-  }
 
-<a
-  href="/pages/product.html?id=${productId}"
-  class="block"
->
+    </div>
 
+    <!-- Navigation -->
+
+    <nav class="px-4 py-6">
+
+      <ul class="space-y-2">
+
+        ${navigation}
+
+      </ul>
+
+    </nav>
+
+    <!-- Part 2 Starts Here -->
+
+   <!-- Footer -->
 <div
   class="
-    overflow-hidden
-    rounded-sm
-
-    bg-gradient-to-b
-    from-[#FCFBF8]
-    to-[#F3EFE9]
-
-    transition-all
-    duration-500
-
-    group-hover:shadow-[0_24px_55px_rgba(0,0,0,.08)]
+    border-t
+    border-white/10
+    px-4
+    py-6
   "
 >
 
-  <div
+  <!-- Quick Links -->
+  <ul class="space-y-2">
+
+    <li>
+      <a
+        href="/pages/wishlist.html"
+        class="
+          flex
+          items-center
+          justify-between
+          rounded-2xl
+          px-5
+          py-4
+          text-sm
+          font-medium
+          text-white
+          transition-all
+          duration-300
+          hover:bg-white/5
+          hover:text-[#A07936]
+        "
+      >
+        Wishlist
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 6l6 6-6 6"
+          />
+        </svg>
+
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="/pages/cart.html"
+        class="
+          flex
+          items-center
+          justify-between
+          rounded-2xl
+          px-5
+          py-4
+          text-sm
+          font-medium
+          text-white
+          transition-all
+          duration-300
+          hover:bg-white/5
+          hover:text-[#A07936]
+        "
+      >
+        Cart
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 6l6 6-6 6"
+          />
+        </svg>
+
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="/pages/about.html"
+        class="
+          flex
+          items-center
+          justify-between
+          rounded-2xl
+          px-5
+          py-4
+          text-sm
+          font-medium
+          text-white
+          transition-all
+          duration-300
+          hover:bg-white/5
+          hover:text-[#A07936]
+        "
+      >
+        About Us
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 6l6 6-6 6"
+          />
+        </svg>
+
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="/pages/contact.html"
+        class="
+          flex
+          items-center
+          justify-between
+          rounded-2xl
+          px-5
+          py-4
+          text-sm
+          font-medium
+          text-white
+          transition-all
+          duration-300
+          hover:bg-white/5
+          hover:text-[#A07936]
+        "
+      >
+        Contact
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 6l6 6-6 6"
+          />
+        </svg>
+
+      </a>
+    </li>
+
+  </ul>
+
+  <!-- Social -->
+<div class="mt-8">
+
+  <p
     class="
-      relative
-      aspect-[5/6]
-      overflow-hidden
+      mb-4
+      px-2
+      text-xs
+      font-medium
+      uppercase
+      tracking-[0.25em]
+      text-white/40
     "
   >
+    Follow Us
+  </p>
 
-        <img
-          src="${primaryImage}"
-          loading="lazy"
-          alt="${product.name}"
+  <div class="flex gap-3">
 
-          class="
-            absolute
-            inset-0
+    <!-- Instagram -->
 
-            h-full
-            w-full
+    <a
+      href="#"
+      aria-label="Instagram"
+      class="
+        group
+        flex
+        h-12
+        flex-1
+        items-center
+        justify-center
 
-            object-cover
+        rounded-2xl
 
-            transition-all
-            duration-700
-            ease-out
+        border
+        border-white/10
 
-            group-hover:scale-[1.08]
-            group-hover:brightness-[0.97]
-          "
+        text-white
 
-          onerror="this.onerror=null;this.src='/src/assets/images/placeholder.webp';"
-        />
+        transition-all
+        duration-300
 
-        <img
-          src="${hoverImage}"
-          loading="lazy"
-          alt="${product.name}"
+        hover:border-[#A07936]
+        hover:bg-[#A07936]/10
+        hover:text-[#A07936]
+      "
+    >
 
-          class="
-            absolute
-            inset-0
-
-            h-full
-            w-full
-
-            object-cover
-
-            opacity-0
-
-            transition-all
-            duration-700
-            ease-out
-
-            group-hover:opacity-100
-            group-hover:scale-[1.08]
-            group-hover:brightness-[0.98]
-          "
-
-          onerror="this.remove();"
-        />
-
-
- ${
-  product.isBestSeller
-    ? `
-      <span
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
         class="
-          absolute
-          top-3
-          left-3
-          z-50
-
-          inline-flex
-          items-center
-          justify-center
-
-
-
-          bg-[#181818]
-
-          px-1.5
-          py-1.5
-
-          text-[9px]
-          font-medium
-          uppercase
-          tracking-[0.18em]
-
-          text-white
-
-          shadow-[0_8px_20px_rgba(0,0,0,.18)]
+          h-5
+          w-5
+          transition-transform
+          duration-300
+          group-hover:scale-110
         "
       >
-        BEST SELLER
-      </span>
-    `
-    : ""
-}
+        <rect
+          x="3"
+          y="3"
+          width="18"
+          height="18"
+          rx="5"
+        />
 
-${
-  hasDiscount
-    ? `
-      <span
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+        />
+
+        <circle
+          cx="17.5"
+          cy="6.5"
+          r="1"
+          fill="currentColor"
+          stroke="none"
+        />
+      </svg>
+
+    </a>
+
+    <!-- WhatsApp -->
+
+    <a
+      href="#"
+      aria-label="WhatsApp"
+      class="
+        group
+        flex
+        h-12
+        flex-1
+        items-center
+        justify-center
+
+        rounded-2xl
+
+        border
+        border-white/10
+
+        text-white
+
+        transition-all
+        duration-300
+
+        hover:border-[#A07936]
+        hover:bg-[#A07936]/10
+        hover:text-[#A07936]
+      "
+    >
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
         class="
-          absolute
-          bottom-3
-          left-3
-          z-50
-
-          inline-flex
-          items-center
-          justify-center
-
-
-
-          bg-[#181818]
-
-          px-1.5
-          py-1.5
-
-          text-[9px]
-          font-medium
-          uppercase
-          tracking-[0.18em]
-
-          text-white
-
-          shadow-[0_8px_20px_rgba(0,0,0,.18)]
+          h-5
+          w-5
+          transition-transform
+          duration-300
+          group-hover:scale-110
         "
       >
-        SAVE ${discountPercent}%
-      </span>
-    `
-    : ""
-}
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M20 11.5a8 8 0 10-14.3 5L4 20l3.7-1.6A8 8 0 1020 11.5z"
+        />
 
-    </div>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9.5 9.5c.3 1.5 2.5 3.7 4 4l1.2-1.2c.3-.3.8-.3 1.1-.1l1.3.7c.4.2.5.7.3 1.1-.4.8-1.3 1.4-2.3 1.4-3.6 0-7.5-3.9-7.5-7.5 0-1 .6-1.9 1.4-2.3.4-.2.9-.1 1.1.3l.7 1.3c.2.3.2.8-.1 1.1L9.5 9.5z"
+        />
+      </svg>
+
+    </a>
+
+  </div>
 
 </div>
 
-<div
-  class="
-    mt-5
-    px-1
-  "
->
+  <!-- Footer -->
+  <div
+    class="
+      mt-8
+      border-t
+      border-white/10
+      pt-6
+      text-center
+    "
+  >
 
-        <h3
-          class="
-            font-medium
+    <p class="text-xs text-white/40">
+      © 2026 Banshiwala
+    </p>
 
-            text-[1.08rem]
+    <p class="mt-2 text-[11px] text-white/25">
+      Premium Sterling Silver Jewellery for Men
+    </p>
 
-            leading-7
+  </div>
 
-            tracking-[0.02em]
+</div>
 
-            text-[#181818]
+  </aside>
 
-            line-clamp-2
-
-            transition-colors
-            duration-300
-
-            group-hover:text-[#A07936]
-          "
-        >
-          ${product.name}
-        </h3>
-
-        <div
-          class="
-            flex
-            items-center
-            gap-3
-          "
-        >
-
-          <span
-            class="
-              text-lg
-
-              font-semibold
-
-              tracking-tight
-
-              text-[#181818]
-            "
-          >
-            ₹${product.price.toLocaleString("en-IN")}
-          </span>
-
-          ${
-            hasDiscount
-              ? `
-              <span
-                class="
-                  text-sm
-
-                  text-[#8C8C8C]
-
-                  line-through
-
-                  font-normal
-                "
-              >
-                ₹${product.originalPrice.toLocaleString("en-IN")}
-              </span>
-            `
-              : ""
-          }
-
-        </div>
-
-
-
-      </div>
-
-    </div>
-
-  </a>
-
-    ${
-    showMoveToCart
-      ? `
-      <button
-        data-id="${productId}"
-        class="
-          mt-5
-
-          w-full
-
-          rounded-xl
-
-          border
-          border-[#181818]
-
-          bg-[#181818]
-
-          py-3.5
-
-          text-sm
-          font-medium
-
-          uppercase
-          tracking-[0.14em]
-
-          text-white
-
-          transition-all
-          duration-300
-
-          hover:border-[#A07936]
-          hover:bg-[#A07936]
-        "
-      >
-        Move to Cart
-      </button>
-      `
-      : ""
-  }
-
-</article>
-
+</div>
 `;
 }

@@ -1,20 +1,6 @@
 export const WHY_CHOOSE_US = [
-  {
-    id: 1,
-    title: "Certified 925 Silver",
-    description:
-      "Crafted using genuine 925 sterling silver for lasting quality and timeless style.",
-    icon: "diamond",
-  },
 
-  {
-    id: 2,
-    title: "Free Shipping",
-    description:
-      "Fast, secure and complimentary delivery across India.",
-    icon: "truck",
-  },
-
+  
   {
     id: 3,
     title: "Secure Checkout",

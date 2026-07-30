@@ -30,6 +30,8 @@ export function createProductCard(product, options = {}) {
     group
     relative
     w-full
+
+    reveal
   "
 >
 
@@ -82,8 +84,8 @@ export function createProductCard(product, options = {}) {
           z-40
 
           flex
-          h-10
-          w-10
+          h-6
+          w-6
           items-center
           justify-center
 
@@ -222,8 +224,8 @@ export function createProductCard(product, options = {}) {
       <span
         class="
           absolute
-          top-3
-          left-3
+          top-0
+          left-0
           z-50
 
           inline-flex
@@ -259,8 +261,8 @@ ${
       <span
         class="
           absolute
-          bottom-3
-          left-3
+          bottom-0
+          left-0
           z-50
 
           inline-flex
@@ -284,7 +286,7 @@ ${
           shadow-[0_8px_20px_rgba(0,0,0,.18)]
         "
       >
-        SAVE ${discountPercent}%
+        - ${discountPercent}%
       </span>
     `
     : ""

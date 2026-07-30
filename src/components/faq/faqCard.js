@@ -1,7 +1,7 @@
 export function createFaqCard(faq) {
   return `
     <div
-      class="faq-item overflow-hidden rounded-3xl border border-[#E8E2DA] bg-white transition-all duration-300 hover:shadow-lg"
+      class="reveal faq-item overflow-hidden rounded-3xl border border-[#E8E2DA] bg-white transition-all duration-300 hover:shadow-lg"
       data-category="${faq.category}"
     >
 
@@ -11,7 +11,7 @@ export function createFaqCard(faq) {
 
         <div>
 
-          
+
 
           <h3
             class="text-xl font-medium text-[#181818]"

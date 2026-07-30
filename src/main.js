@@ -14,19 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initHero();
 
-  initRevealAnimations();
-
   initProducts();
 
   initFAQ();
 
   initHomePage();
 
+  // AFTER everything is rendered
+  initRevealAnimations();
+
   const footer = document.getElementById("footer");
 
   if (footer) {
     footer.innerHTML = createFooter();
-
     initFooterAccordion();
   }
 });
