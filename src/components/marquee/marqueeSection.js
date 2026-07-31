@@ -12,7 +12,7 @@ export function createMarqueeSection() {
 
     bg-[#FAF8F5]
 
-    py-6
+    py-2
     lg:py-7
   "
 >

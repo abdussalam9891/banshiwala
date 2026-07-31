@@ -14,7 +14,7 @@ export function createCollectionCard(collection) {
       rounded-sm
 
       reveal
-      reveal-left
+       
 
 
 

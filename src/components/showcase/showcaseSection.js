@@ -5,9 +5,10 @@ export function createShowcaseSection() {
 <section
   class="
     reveal
+    reveal-up
 
-    py-20
-    lg:py-28
+    py-14
+    lg:py-18
 
     bg-white
   "
@@ -59,20 +60,7 @@ export function createShowcaseSection() {
         Our Showcase
       </h2>
 
-      <p
-        class="
-          mt-5
 
-          max-w-2xl
-
-          text-[#6B6B6B]
-
-          leading-8
-        "
-      >
-        Handpicked sterling silver pieces crafted for everyday wear,
-        timeless style and effortless confidence.
-      </p>
 
     </div>
 
@@ -82,7 +70,7 @@ export function createShowcaseSection() {
       id="showcaseTabs"
 
       class="
-        mt-14
+        mt-8
 
         flex
         justify-center
@@ -108,7 +96,7 @@ lg:px-7
 
 py-3
 
-rounded-full
+rounded-2xl
 
 border
 
@@ -117,8 +105,8 @@ duration-300
 
 ${
   index === 0
-    ? "bg-[#111111] text-white border-[#111111]"
-    : "bg-white text-[#444] border-[#E5E5E5] hover:border-[#A07936] hover:text-[#111]"
+    ? "bg-[#111111] text-white border-[#111111] hover:border-[#A07936]"
+    : "bg-white text-[#444] border-[#E5E5E5] hover:border-[#A07936]  "
 }
 
 "
@@ -135,105 +123,11 @@ ${tab.label}
 
     <!-- Products -->
 
- <div class="relative mt-14">
+ <div class="relative mt-6">
 
-  <!-- Left Arrow -->
 
-  <button
-    id="showcasePrev"
 
-    class="
-      hidden
-      lg:flex
 
-      absolute
-
-      left-0
-      top-1/2
-
-      -translate-x-1/2
-      -translate-y-1/2
-
-      z-20
-
-      h-12
-      w-12
-
-      items-center
-      justify-center
-
-      rounded-full
-
-      bg-white
-
-      shadow-xl
-
-      border
-      border-gray-200
-
-      transition-all
-      duration-300
-
-      hover:bg-[#111]
-      hover:text-white
-
-      disabled:opacity-40
-      disabled:pointer-events-none
-    "
-  >
-
-    ←
-
-  </button>
-
-  <!-- Right Arrow -->
-
-  <button
-    id="showcaseNext"
-
-    class="
-      hidden
-      lg:flex
-
-      absolute
-
-      right-0
-      top-1/2
-
-      translate-x-1/2
-      -translate-y-1/2
-
-      z-20
-
-      h-12
-      w-12
-
-      items-center
-      justify-center
-
-      rounded-full
-
-      bg-white
-
-      shadow-xl
-
-      border
-      border-gray-200
-
-      transition-all
-      duration-300
-
-      hover:bg-[#111]
-      hover:text-white
-
-      disabled:opacity-40
-      disabled:pointer-events-none
-    "
-  >
-
-    →
-
-  </button>
 
   <!-- Products -->
 
@@ -262,9 +156,7 @@ pb-4
     transition-opacity
     duration-200
 
-    cursor-grab
 
-    active:cursor-grabbing
   "
 >
 </div>
@@ -275,7 +167,6 @@ pb-4
 
 
 
-  </div>
 
 </section>
 `;

@@ -10,7 +10,7 @@ export function createHomeFaq() {
     return `
 <section
   class="
-    bg-[#FAF8F5]
+    bg-white
     py-24
   "
 >
@@ -25,7 +25,7 @@ export function createHomeFaq() {
 
     <div class="text-center">
 
-       
+
       <h2
         class="
           mt-4

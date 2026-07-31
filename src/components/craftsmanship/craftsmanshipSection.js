@@ -6,8 +6,8 @@ export function createCraftsmanshipSection() {
 
     bg-white
 
-    py-16
-    lg:py-24
+    py-14
+    lg:py-20
   "
 >
 
@@ -89,8 +89,6 @@ lg:gap-8
 
       <!-- Content -->
 
-     <!-- Content -->
-
 <div
   class="
     reveal
@@ -105,30 +103,6 @@ lg:gap-8
   "
 >
 
-  <!-- Eyebrow -->
-
-  <span
-    class="
-      inline-block
-
-      text-xs
-
-      font-medium
-
-      uppercase
-
-      tracking-[0.35em]
-
-      text-[#A07936]
-
-      transition-all
-      duration-500
-
-      group-hover:tracking-[0.42em]
-    "
-  >
-    Crafted With Precision
-  </span>
 
   <!-- Heading -->
 
@@ -203,6 +177,7 @@ lg:gap-8
 
     px-8
     py-4
+    mt-8
 
     text-sm
     font-medium

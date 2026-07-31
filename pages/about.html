@@ -170,7 +170,7 @@
 
 <body
   class="
-    bg-[#FAF8F5]
+   bg-white
     text-[#181818]
     antialiased
   "
@@ -192,8 +192,9 @@
   <section
     class="
       border-b
+      py-14
       border-[#ECE7E1]
-      bg-[#FAF8F5]
+      bg-white
     "
   >
 
@@ -266,36 +267,70 @@
         "
       >
 
-        <a
-          href="/collections.html"
-          class="
-            inline-flex
-            items-center
-            justify-center
+    <a
+  href="/collections.html"
+  class="
+    group
+    relative
 
-            rounded-full
+    inline-flex
+    items-center
+    justify-center
 
-            bg-[#181818]
+    overflow-hidden
 
-            px-8
-            py-4
+    rounded-full
 
-            text-sm
-            font-medium
-            uppercase
+    bg-[#181818]
 
-            tracking-[0.18em]
+    px-8
+    py-4
 
-            text-white
+    text-sm
+    font-medium
+    uppercase
 
-            transition-all
-            duration-300
+    tracking-[0.18em]
 
-            hover:bg-[#A07936]
-          "
-        >
-          Explore Collection
-        </a>
+    text-white
+  "
+>
+  <!-- Animated Background -->
+  <span
+    class="
+      absolute
+      inset-0
+
+      origin-left
+      scale-x-0
+
+      rounded-full
+
+      bg-[#A07936]
+
+      transition-transform
+      duration-700
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+
+      group-hover:scale-x-100
+    "
+  ></span>
+
+  <!-- Text -->
+  <span
+    class="
+      relative
+      z-10
+
+      transition-colors
+      duration-300
+
+      group-hover:text-white
+    "
+  >
+    Explore Collection
+  </span>
+</a>
 
         <a
           href="#our-story"
@@ -580,37 +615,73 @@
 
       </div>
 
-      <a
-        href="/collections.html"
-        class="
-          mt-12
-          inline-flex
-          items-center
-          justify-center
+    <a
+  href="/collections.html"
+  class="
+    group
 
-          rounded-full
+    relative
 
-          bg-[#181818]
+    mt-12
 
-          px-8
-          py-4
+    inline-flex
+    items-center
+    justify-center
 
-          text-sm
-          font-medium
-          uppercase
+    overflow-hidden
 
-          tracking-[0.18em]
+    rounded-full
 
-          text-white
+    bg-[#181818]
 
-          transition-all
-          duration-300
+    px-8
+    py-4
 
-          hover:bg-[#A07936]
-        "
-      >
-        Discover Our Collection
-      </a>
+    text-sm
+    font-medium
+    uppercase
+
+    tracking-[0.18em]
+
+    text-white
+  "
+>
+  <!-- Animated Background -->
+  <span
+    class="
+      absolute
+      inset-0
+
+      origin-left
+      scale-x-0
+
+      rounded-full
+
+      bg-[#A07936]
+
+      transition-transform
+      duration-700
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+
+      group-hover:scale-x-100
+    "
+  ></span>
+
+  <!-- Button Text -->
+  <span
+    class="
+      relative
+      z-10
+
+      transition-colors
+      duration-300
+
+      group-hover:text-white
+    "
+  >
+    Discover Our Collection
+  </span>
+</a>
 
     </div>
 
@@ -626,7 +697,7 @@
 ========================================== -->
 
 <section
-  class="bg-[#FAF8F5]"
+  class="bg-white"
 >
 
   <div

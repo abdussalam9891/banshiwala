@@ -1,14 +1,12 @@
 const ICONS = {
-
-
-
+  // Hallmark stamp — references the actual 925 purity mark used on real silver, not a generic checkmark-shield
   shield: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      stroke-width="1.7"
+      stroke-width="1.3"
       class="
 h-9
 w-9
@@ -22,18 +20,20 @@ lg:h-10
 lg:w-10
 "
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V7l8-4z"/>
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 12l2 2 3.5-4"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.5l7.5 3v6.2c0 5-3.2 8.7-7.5 10.3-4.3-1.6-7.5-5.3-7.5-10.3V5.5l7.5-3z"/>
+      <text x="12" y="13.5" text-anchor="middle" font-size="6.5" font-family="serif" fill="currentColor" stroke="none">925</text>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 16.5h6"/>
     </svg>
   `,
 
+  // Return — a folded gift-wrap corner easing back into a box, reads as "returns" without the generic recycle-arrow cliché
   return: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      stroke-width="1.7"
+      stroke-width="1.3"
       class="
 h-9
 w-9
@@ -47,18 +47,21 @@ lg:h-10
 lg:w-10
 "
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 7H5v4"/>
-      <path stroke-linecap="round" stroke-linejoin="round" d="M5 11a7 7 0 101.8-4.7"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 9l8-4 8 4-8 4-8-4z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 9v7l8 4 8-4V9"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 13v7"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8 14.5a2.4 2.4 0 002.4-2.4"/>
     </svg>
   `,
 
+  // Gift — a jewelry box with a ring nested inside, not a generic wrapped-present
   gift: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      stroke-width="1.7"
+      stroke-width="1.3"
       class="
 h-9
 w-9
@@ -72,19 +75,21 @@ lg:h-10
 lg:w-10
 "
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M20 12v8H4v-8"/>
-      <path stroke-linecap="round" stroke-linejoin="round" d="M2 7h20v5H2z"/>
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v13"/>
+      <rect x="4" y="9" width="16" height="11" rx="1.2"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 13h16"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.5a3 1.6 0 016 0"/>
+      <circle cx="12" cy="16.3" r="2.1"/>
     </svg>
   `,
 
+  // Support — a polishing cloth over a piece, ties to jewelry care/service rather than a call-center headset
   support: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      stroke-width="1.7"
+      stroke-width="1.3"
       class="
 h-9
 w-9
@@ -98,8 +103,9 @@ lg:h-10
 lg:w-10
 "
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M4 12a8 8 0 1116 0v5"/>
-      <path stroke-linecap="round" stroke-linejoin="round" d="M4 17h3v3H4zm13 0h3v3h-3z"/>
+      <circle cx="12" cy="9" r="4"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 8.5l1.3 1.3L14 7"/>
     </svg>
   `,
 };
@@ -118,17 +124,14 @@ export function createFeatureCard(feature) {
         py-6
         px-2
 
-
-
         transition-all
         duration-700
         ease-out
 
         reveal
-        reveal-left
+        
       "
     >
-
       <div
         class="
           flex
@@ -142,11 +145,15 @@ lg:w-20
 
           rounded-full
 
+          border
+          border-[#EDEDED]
+
           transition-all
           duration-500
 
           group-hover:-translate-y-1
           group-hover:scale-110
+          group-hover:border-[#A07936]
         "
       >
         ${ICONS[feature.icon]}
