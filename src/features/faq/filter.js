@@ -7,40 +7,23 @@ export function initCategoryFilter() {
     const container = document.getElementById("faqContainer");
 
     buttons.forEach(button => {
-        button.addEventListener("click", () => {
+       button.addEventListener("click", () => {
+    console.log("Clicked:", button.dataset.category);
 
-            buttons.forEach(btn => {
-                btn.classList.remove(
-                    "bg-black",
-                    "text-white",
-                    "border-black"
-                );
+    const category = button.dataset.category;
 
-                btn.classList.add(
-                    "bg-white",
-                    "text-[#555]",
-                    "border-[#E8E2DA]"
-                );
-            });
+    const faqs =
+        category === "all"
+            ? FAQS.filter(faq => faq.featured)
+            : FAQS.filter(faq => faq.category === category);
 
-            button.classList.add(
-                "bg-black",
-                "text-white",
-                "border-black"
-            );
+    console.log(faqs);
 
-            const category = button.dataset.category;
+    container.innerHTML = faqs
+        .map(createFaqCard)
+        .join("");
 
-            const faqs =
-                category === "all"
-                    ? FAQS.filter(faq => faq.featured)
-                    : FAQS.filter(faq => faq.category === category);
-
-            container.innerHTML = faqs
-                .map(createFaqCard)
-                .join("");
-
-            initAccordion();
-        });
+    initAccordion();
+});
     });
 }

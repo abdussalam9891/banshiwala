@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Meta -->
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Banshiwala | Collections</title>
+
+  <meta
+    name="description"
+    content="Explore handcrafted sterling silver jewellery from Banshiwala."
+  />
+
+  <meta
+    name="theme-color"
+    content="#181818"
+  />
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="/src/css/main.css"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#A07936",
+            background: "#181818",
+            surface: "#1C1C1C",
+          },
+
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            serif: ["Cormorant Garamond", "serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+</head>
+
+<body
+  class="
+    min-h-screen
+    bg-white
+    font-sans
+    text-[#181818]
+    antialiased
+  "
+>
+
+  <!-- Navbar -->
+
+ <div
+  id="navbar-container"
+  data-theme="dark"
+></div>
+
+  <!-- Main -->
+
+  <main>
+
+    <!-- Hero -->
+
+    <section id="productsHero"></section>
+
+    <!-- Toolbar -->
+
+    <section id="productsToolbar"></section>
+
+    <!-- Products + Filters -->
+
+   <section class="bg-white py-10">
+
+<div
+class="
+max-w-[1600px]
+mx-auto
+
+px-4
+sm:px-6
+lg:px-8
+xl:px-10
+"
+>
+
+<div
+class="
+grid
+
+grid-cols-1
+lg:grid-cols-[300px_1fr]
+
+gap-12
+"
+>
+
+<div id="productsFiltersContainer"></div>
+
+<div id="productsGrid"></div>
+
+</div>
+
+</div>
+
+</section>
+
+    <!-- Pagination -->
+
+    <section id="productsPagination"></section>
+
+    <!-- Recently Viewed (future) -->
+
+    <section id="recentlyViewed"></section>
+
+  </main>
+
+  <!-- Footer -->
+
+  <div id="footer"></div>
+
+  <script
+    type="module"
+    src="/src/main.js"
+  ></script>
+
+</body>
+
+</html>

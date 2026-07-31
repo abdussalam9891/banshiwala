@@ -166,25 +166,31 @@ ${icons[type]}
 `;
 }
 
-export function createShowcaseCard(product) {
+export function createShowcaseCard(product,
+    isSlider = true) {
   const images = getProductImages(product);
 
   return `
 <article
-  class="
-    group
-    reveal
+ class="
+group
+reveal
 
-    flex-shrink-0
-
-    w-[72%]
-    sm:w-[48%]
-    md:w-[34%]
-    lg:w-[24%]
-    xl:w-[21%]
-
-    snap-start
-  "
+${isSlider
+? `
+flex-shrink-0
+w-[72%]
+sm:w-[48%]
+md:w-[34%]
+lg:w-[24%]
+xl:w-[21%]
+snap-start
+`
+: `
+w-full
+`
+}
+"
 >
 
   <!-- IMAGE CARD -->
