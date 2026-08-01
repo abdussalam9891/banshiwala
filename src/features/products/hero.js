@@ -100,23 +100,7 @@ bg-[#FCFAF7]
 "
 >
 
-<div
-class="
-absolute
 
-right-[-120px]
-top-[-120px]
-
-h-[420px]
-w-[420px]
-
-rounded-full
-
-bg-[#A07936]/[0.05]
-
-blur-3xl
-"
-></div>
 
 <div
 class="
@@ -136,45 +120,48 @@ lg:py-28
 >
 
 <nav
-class="
-flex
-items-center
-
-gap-2
-mt-8
-
-text-xs
-
-uppercase
-
-tracking-[0.25em]
-
-text-[#8A8A8A]
-"
+  class="
+    mt-8
+    flex
+    items-center
+    gap-3
+    text-sm
+    font-medium
+  "
 >
+  <a
+    href="/index.html"
+    class="
+      group
+      relative
+      text-[#666]
+      transition-colors
+      duration-300
+      hover:text-[#181818]
+    "
+  >
+    Home
 
-<a
-href="/index.html"
+    <span
+      class="
+        absolute
+        -bottom-1
+        left-0
+        h-px
+        w-0
+        bg-[#A07936]
+        transition-all
+        duration-300
+        group-hover:w-full
+      "
+    ></span>
+  </a>
 
-class="
-transition
+  <span class="text-[#C8B79B]">/</span>
 
-hover:text-[#181818]
-"
->
-
-Home
-
-</a>
-
-<span>/</span>
-
-<span class="text-[#181818]">
-
-${hero.title}
-
-</span>
-
+  <span class="text-[#181818]">
+    ${hero.title}
+  </span>
 </nav>
 
 <div class="mt-10 max-w-3xl">
@@ -223,7 +210,7 @@ ${hero.description}
 
 </p>
 
- 
+
 
 </div>
 

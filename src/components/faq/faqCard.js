@@ -1,7 +1,7 @@
 export function createFaqCard(faq) {
   return `
     <div
-      class="reveal faq-item overflow-hidden rounded-3xl border border-[#E8E2DA] bg-white transition-all duration-300 hover:shadow-lg"
+      class="faq-item overflow-hidden rounded-3xl border border-[#E8E2DA] bg-white transition-all duration-300 hover:shadow-lg"
       data-category="${faq.category}"
     >
 

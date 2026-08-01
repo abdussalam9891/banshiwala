@@ -45,26 +45,16 @@ self-start
 
 rounded-full
 
-border
-border-[#ECE5DD]
 
-bg-[#FAF8F5]
+
+ 
 
 px-5
 py-2.5
 "
 >
 
-<div
-class="
-h-2.5
-w-2.5
 
-rounded-full
-
-bg-[#A07936]
-"
-></div>
 
 <p
 class="

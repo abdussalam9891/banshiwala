@@ -3,27 +3,41 @@ import { createFaqCard } from "../../components/faq/faqCard.js";
 import { initAccordion } from "./accordion.js";
 
 export function initCategoryFilter() {
-    const buttons = document.querySelectorAll(".faq-filter");
-    const container = document.getElementById("faqContainer");
+  const buttons = document.querySelectorAll(".faq-filter");
+  const container = document.getElementById("faqContainer");
 
-    buttons.forEach(button => {
-       button.addEventListener("click", () => {
-    console.log("Clicked:", button.dataset.category);
+  console.log("Buttons Found:", buttons.length);
+  console.log("Container:", container);
 
-    const category = button.dataset.category;
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      console.log("====================================");
+      console.log("Clicked:", button.dataset.category);
 
-    const faqs =
+      const category = button.dataset.category;
+
+      const faqs =
         category === "all"
-            ? FAQS.filter(faq => faq.featured)
-            : FAQS.filter(faq => faq.category === category);
+          ? FAQS.filter((faq) => faq.featured)
+          : FAQS.filter((faq) => faq.category === category);
 
-    console.log(faqs);
+      console.log("Filtered FAQs:", faqs);
+      console.log("Count:", faqs.length);
 
-    container.innerHTML = faqs
-        .map(createFaqCard)
-        .join("");
+      const html = faqs.map(createFaqCard).join("");
 
-    initAccordion();
-});
+      console.log("Generated HTML:");
+      console.log(html);
+
+      container.innerHTML = html;
+
+      console.log("Children After Render:", container.children.length);
+      console.log("InnerHTML Length:", container.innerHTML.length);
+
+      initAccordion();
+
+      console.log("Children After Accordion:", container.children.length);
+      console.log("====================================");
     });
+  });
 }

@@ -201,8 +201,8 @@ w-full
 
       overflow-hidden
 
-      rounded-[18px]
-      sm:rounded-[20px]
+      rounded-sm
+      sm:rounded-sm
 
       bg-[#FAF8F8]
 
@@ -348,8 +348,7 @@ w-full
 
   </div>
 
-    <!-- PRODUCT INFO -->
-
+    
   <!-- PRODUCT INFO -->
 
   <div
