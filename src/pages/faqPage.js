@@ -1,4 +1,4 @@
-import { initFAQ } from "../features/faq/index.js";
+import { initFAQ } from "../features/faqPage/index.js";
 
 export function loadFAQPage() {
 
