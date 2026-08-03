@@ -3,7 +3,14 @@ import { createMobileNav } from "./mobileNav.js";
 import { createSearchOverlay } from "./searchOverlay.js";
 import { createAnnouncementBar } from "../announcement/announcementBar.js";
 
-export function createNavbar(theme = "light") {
+
+export function createNavbar(
+  theme = "light",
+  user = null,
+  {
+    showAnnouncement = true,
+  } = {}
+) {
   return `
     <header
       id="siteHeader"
@@ -19,21 +26,19 @@ export function createNavbar(theme = "light") {
       "
     >
 
-      <!-- Announcement -->
+      ${
+        showAnnouncement
+          ? createAnnouncementBar()
+          : ""
+      }
 
-     ${createAnnouncementBar()}
-
-      <!-- Desktop Navigation -->
-
-      ${createDesktopNav(theme)}
-
-      <!-- Mobile Navigation -->
+      ${createDesktopNav(theme, user)}
 
       ${createMobileNav(theme)}
 
-      <!-- Search Overlay -->
-
       ${createSearchOverlay()}
+
+
 
     </header>
   `;

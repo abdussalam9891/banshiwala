@@ -1,10 +1,15 @@
 import { NAVIGATION } from "../../constants/navigation.js";
+import { icon } from "../../utils/icon.js";
+import { createAccountDropdown } from "../accountDropdown/index.js";
 
 
 
 
 
-export function createDesktopNav(theme = "light") {
+export function createDesktopNav(
+  theme = "light",
+  user = null
+) {
 
 
 
@@ -105,19 +110,7 @@ export function createDesktopNav(theme = "light") {
         lg:hidden
       "
     >
-     <svg
-  xmlns="http://www.w3.org/2000/svg"
-  class="h-7 w-7"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="1.8"
-  stroke-linecap="round"
->
-  <line x1="4" y1="6" x2="20" y2="6" />
-  <line x1="4" y1="12" x2="20" y2="12" />
-  <line x1="4" y1="18" x2="15" y2="18" />
-</svg>
+    ${icon("menu", "h-7 w-7")}
     </button>
 
     <!-- Logo -->
@@ -245,25 +238,7 @@ ${hoverBg}
           hover:text-[#A07936]
         "
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          class="h-5 w-5"
-        >
-          <circle
-            cx="11"
-            cy="11"
-            r="7"
-          />
-          <path
-            d="M20 20L16.65 16.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+        ${icon("search")}
       </button>
 
       <!-- Wishlist -->
@@ -288,20 +263,7 @@ ${hoverBg}
           hover:text-[#A07936]
         "
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          class="h-5 w-5"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 20.5l-1.45-1.32C5.4 14.36 2 11.28 2 7.5A4.5 4.5 0 016.5 3 5.1 5.1 0 0112 6.09 5.1 5.1 0 0117.5 3 4.5 4.5 0 0122 7.5c0 3.78-3.4 6.86-8.55 11.68L12 20.5z"
-          />
-        </svg>
+       ${icon("heart")}
 
         <span
           id="wishlistCount"
@@ -348,32 +310,7 @@ ${hoverBg}
           hover:text-[#A07936]
         "
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          class="h-5 w-5"
-        >
-          <circle
-            cx="9"
-            cy="20"
-            r="1.25"
-          />
-
-          <circle
-            cx="18"
-            cy="20"
-            r="1.25"
-          />
-
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M2 3h2l2.4 10.2a1 1 0 001 .8h9.8a1 1 0 001-.78L20 7H6"
-          />
-        </svg>
+        ${icon("shopping-bag")}
 
         <span
           id="cartCount"
@@ -398,6 +335,51 @@ ${hoverBg}
         </span>
 
       </a>
+
+
+     <!-- user -->
+
+     <div
+  id="accountWrapper"
+  class="
+    relative
+    hidden
+    lg:block
+  "
+>
+
+  <button
+    id="accountBtn"
+    type="button"
+
+    class="
+      flex
+      h-11
+      w-11
+
+      items-center
+      justify-center
+
+      rounded-full
+
+      navbar-text
+      ${textColor}
+      ${hoverBg}
+
+      transition-all
+      duration-300
+
+      hover:text-[#A07936]
+    "
+  >
+
+    ${icon("user")}
+
+  </button>
+
+  ${createAccountDropdown(user)}
+
+</div>
 
     </div>
 

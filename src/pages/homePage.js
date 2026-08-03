@@ -11,17 +11,60 @@ import { renderWhyChooseUs } from "../features/whyChooseUs/index.js";
 
 import { initHomeAccordion } from "../features/homeFaq/accordion.js";
 
-export function initHomePage() {
+import { createAnnouncementBar } from "../components/announcement/announcementBar.js";
 
+import {
+  createCustomizeJewelleryButton,
+  createCustomizeJewelleryModal,
+} from "../components/customizeJewellery/index.js";
+
+export function initHomePage() {
   const container = document.getElementById("homeFaq");
 
   if (!container) return;
 
   initHero();
 
+  // Announcement after Hero
+  const announcement = document.getElementById("homeAnnouncement");
+
+  if (announcement) {
+    announcement.innerHTML = createAnnouncementBar();
+  }
+
+
+
+
+
+// customize jewellery floating btn
+  const buttonContainer = document.getElementById("customizeJewellery");
+
+if (buttonContainer) {
+  buttonContainer.innerHTML =
+    createCustomizeJewelleryButton();
+}
+
+const drawerContainer = document.getElementById(
+  "customizeJewelleryDrawer"
+);
+
+if (drawerContainer) {
+  drawerContainer.innerHTML =
+     createCustomizeJewelleryModal();
+}
+
+
+
+
+
+
+
+
+
+
+
   container.innerHTML = createHomeFaq();
 
-  // Initialize Home FAQ accordion
   initHomeAccordion();
 
   const modules = [
@@ -41,5 +84,4 @@ export function initHomePage() {
       console.error(`[initHomePage] ${name} failed:`, err);
     }
   });
-
 }

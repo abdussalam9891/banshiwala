@@ -1,66 +1,74 @@
 import { NAVIGATION } from "../../constants/navigation.js";
+import { icon } from "../../utils/icon.js";
 
 export function createMobileNav() {
   const navigation = NAVIGATION.map(
     (item) => `
       <li>
+
         <a
           href="${item.href}"
           data-nav="${item.slug}"
+
           class="
             group
+
             flex
             items-center
             justify-between
+
             rounded-2xl
+
             px-5
             py-4
+
             text-sm
             font-medium
             uppercase
             tracking-[0.15em]
+
             text-white
+
             transition-all
             duration-300
+
             hover:bg-white/5
             hover:text-[#A07936]
           "
         >
-          <span>${item.label}</span>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
+          <span>
+            ${item.label}
+          </span>
+
+          <span
             class="
-              h-5
-              w-5
               transition-transform
               duration-300
+
               group-hover:translate-x-1
             "
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.8"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 6l6 6-6 6"
-            />
-          </svg>
+            ${icon("chevron-right")}
+          </span>
 
         </a>
+
       </li>
     `
   ).join("");
 
   return `
+
 <div
   id="mobileDrawer"
+
   class="
     fixed
     inset-0
+
     z-[999]
+
     hidden
   "
 >
@@ -69,12 +77,16 @@ export function createMobileNav() {
 
   <div
     id="mobileBackdrop"
+
     class="
       absolute
       inset-0
+
       bg-black/60
       backdrop-blur-sm
+
       opacity-0
+
       transition-opacity
       duration-300
     "
@@ -83,33 +95,41 @@ export function createMobileNav() {
   <!-- Drawer -->
 
   <aside
+
     id="mobilePanel"
+
     class="
-      absolute
-      left-4
-      top-4
-      bottom-4
+  absolute
 
-      w-[340px]
-      max-w-[calc(100vw-2rem)]
+  left-1/2
+  top-1/2
 
-      overflow-y-auto
+  w-[92vw]
+  max-w-[380px]
+  max-h-[90vh]
 
-      rounded-3xl
+  -translate-x-1/2
+  -translate-y-1/2
+  scale-95
 
-      border
-      border-white/10
+  overflow-y-auto
+  no-scrollbar
 
-      bg-[#181818]
+  rounded-[28px]
 
-      shadow-2xl
+  border
+  border-white/10
 
-      -translate-x-[120%]
+  bg-[#181818]
 
-      transition-transform
-      duration-300
-      no-scrollbar
-    "
+  shadow-[0_35px_90px_rgba(0,0,0,.45)]
+
+  opacity-0
+
+  transition-all
+  duration-300
+"
+
   >
 
     <!-- Header -->
@@ -128,26 +148,50 @@ export function createMobileNav() {
       "
     >
 
-      <h2
-        class="
-          text-lg
-          font-semibold
-          uppercase
-          tracking-[0.18em]
-          text-white
-        "
-      >
-        Menu
-      </h2>
+      <div>
+
+        <p
+          class="
+            text-[11px]
+
+            uppercase
+
+            tracking-[0.35em]
+
+            text-[#A07936]
+          "
+        >
+          Banshiwala
+        </p>
+
+        <h2
+          class="
+            mt-2
+
+            text-lg
+            font-medium
+
+            text-white
+          "
+        >
+          Navigation
+        </h2>
+
+      </div>
 
       <button
+
         id="closeDrawerBtn"
+
         type="button"
+
         aria-label="Close Menu"
+
         class="
           flex
           h-10
           w-10
+
           items-center
           justify-center
 
@@ -155,37 +199,121 @@ export function createMobileNav() {
 
           text-white
 
-          transition
+          transition-all
+          duration-300
 
           hover:bg-white/5
           hover:text-[#A07936]
         "
+
       >
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 6l12 12M18 6L6 18"
-          />
-        </svg>
+        ${icon("x", "h-6 w-6")}
 
       </button>
 
     </div>
 
+    <!-- Account -->
+
+    <div
+      class="
+        border-b
+        border-white/10
+
+        px-4
+        py-5
+      "
+    >
+
+      <a
+
+        href="/pages/login.html"
+
+        class="
+          flex
+          items-center
+
+          gap-4
+
+          rounded-2xl
+
+          px-5
+          py-4
+
+          transition-all
+          duration-300
+
+          text-white
+
+          hover:bg-white/5
+          hover:text-[#A07936]
+        "
+
+      >
+
+        <div
+          class="
+            flex
+            h-12
+            w-12
+
+            items-center
+            justify-center
+
+            rounded-full
+
+            bg-white/5
+          "
+        >
+
+          ${icon("user")}
+
+        </div>
+
+        <div>
+
+          <p
+            class="
+              text-sm
+              font-medium
+            "
+          >
+            My Account
+          </p>
+
+          <p
+            class="
+              mt-1
+
+              text-xs
+
+              text-white/50
+            "
+          >
+            Sign In / Register
+          </p>
+
+        </div>
+
+      </a>
+
+    </div>
+
     <!-- Navigation -->
 
-    <nav class="px-4 py-6">
+    <nav
+      class="
+        px-4
+        py-6
+      "
+    >
 
-      <ul class="space-y-2">
+      <ul
+        class="
+          space-y-2
+        "
+      >
 
         ${navigation}
 
@@ -193,197 +321,280 @@ export function createMobileNav() {
 
     </nav>
 
-    <!-- Part 2 Starts Here -->
+    <!-- Quick Links -->
 
-   <!-- Footer -->
 <div
   class="
     border-t
     border-white/10
+
     px-4
     py-6
   "
 >
 
-  <!-- Quick Links -->
   <ul class="space-y-2">
 
+    <!-- Wishlist -->
+
     <li>
+
       <a
         href="/pages/wishlist.html"
+
         class="
+          group
+
           flex
           items-center
           justify-between
+
           rounded-2xl
+
           px-5
           py-4
+
           text-sm
           font-medium
+
           text-white
+
           transition-all
           duration-300
+
           hover:bg-white/5
           hover:text-[#A07936]
         "
       >
-        Wishlist
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.8"
+        <div class="flex items-center gap-3">
+
+          ${icon("heart")}
+
+          <span>Wishlist</span>
+
+        </div>
+
+        <span
+          class="
+            transition-transform
+            duration-300
+
+            group-hover:translate-x-1
+          "
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M9 6l6 6-6 6"
-          />
-        </svg>
+          ${icon("chevron-right")}
+        </span>
 
       </a>
+
     </li>
 
+    <!-- Cart -->
+
     <li>
+
       <a
         href="/pages/cart.html"
+
         class="
+          group
+
           flex
           items-center
           justify-between
+
           rounded-2xl
+
           px-5
           py-4
+
           text-sm
           font-medium
+
           text-white
+
           transition-all
           duration-300
+
           hover:bg-white/5
           hover:text-[#A07936]
         "
       >
-        Cart
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.8"
+        <div class="flex items-center gap-3">
+
+          ${icon("shopping-bag")}
+
+          <span>Cart</span>
+
+        </div>
+
+        <span
+          class="
+            transition-transform
+            duration-300
+
+            group-hover:translate-x-1
+          "
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M9 6l6 6-6 6"
-          />
-        </svg>
+          ${icon("chevron-right")}
+        </span>
 
       </a>
+
     </li>
 
+    <!-- About -->
+
     <li>
+
       <a
         href="/pages/about.html"
+
         class="
+          group
+
           flex
           items-center
           justify-between
+
           rounded-2xl
+
           px-5
           py-4
+
           text-sm
           font-medium
+
           text-white
+
           transition-all
           duration-300
+
           hover:bg-white/5
           hover:text-[#A07936]
         "
       >
-        About Us
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.8"
+        <div class="flex items-center gap-3">
+
+          ${icon("info")}
+
+          <span>About Us</span>
+
+        </div>
+
+        <span
+          class="
+            transition-transform
+            duration-300
+
+            group-hover:translate-x-1
+          "
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M9 6l6 6-6 6"
-          />
-        </svg>
+          ${icon("chevron-right")}
+        </span>
 
       </a>
+
     </li>
 
+    <!-- Contact -->
+
     <li>
+
       <a
         href="/pages/contact.html"
+
         class="
+          group
+
           flex
           items-center
           justify-between
+
           rounded-2xl
+
           px-5
           py-4
+
           text-sm
           font-medium
+
           text-white
+
           transition-all
           duration-300
+
           hover:bg-white/5
           hover:text-[#A07936]
         "
       >
-        Contact
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.8"
+        <div class="flex items-center gap-3">
+
+          ${icon("mail")}
+
+          <span>Contact</span>
+
+        </div>
+
+        <span
+          class="
+            transition-transform
+            duration-300
+
+            group-hover:translate-x-1
+          "
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M9 6l6 6-6 6"
-          />
-        </svg>
+          ${icon("chevron-right")}
+        </span>
 
       </a>
+
     </li>
 
   </ul>
 
- 
-
   <!-- Footer -->
+
   <div
     class="
       mt-8
+
       border-t
       border-white/10
+
       pt-6
+
       text-center
     "
   >
 
-    <p class="text-xs text-white/40">
+    <p
+      class="
+        text-xs
+
+        tracking-[0.2em]
+
+        text-white/40
+      "
+    >
       © 2026 Banshiwala
     </p>
 
-    <p class="mt-2 text-[11px] text-white/25">
+    <p
+      class="
+        mt-2
+
+        text-[11px]
+
+        tracking-[0.08em]
+
+        text-white/25
+      "
+    >
       Premium Sterling Silver Jewellery for Men
     </p>
 
