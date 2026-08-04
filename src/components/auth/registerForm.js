@@ -298,7 +298,7 @@ export function createRegisterForm() {
 
     I agree to the
     <a
-      href="/pages/terms.html"
+      href="/pages/terms-and-conditions.html"
 
       class="
         text-[#A07936]
@@ -310,7 +310,7 @@ export function createRegisterForm() {
 
     &
     <a
-      href="/pages/privacy.html"
+      href="/pages/privacy-policy.html"
 
       class="
         text-[#A07936]

@@ -2,7 +2,7 @@ export const ANNOUNCEMENTS = [
   {
     id: 1,
     text: "Free Shipping On Orders ₹999+",
-    href: "/pages/shipping.html",
+    href: "/pages/shipping-policy.html",
   },
   {
     id: 2,

@@ -28,7 +28,7 @@ export function createAuthFooter() {
   >
 
     <a
-      href="/pages/privacy.html"
+      href="/pages/privacy-policy.html"
 
       class="
         group
@@ -49,7 +49,7 @@ export function createAuthFooter() {
     </a>
 
     <a
-      href="/pages/terms.html"
+      href="/pages/terms-and-conditions.html"
 
       class="
         text-[13px]
@@ -124,7 +124,7 @@ export function createAuthFooter() {
     "
   >
 
-   
+
 
     <p
       class="

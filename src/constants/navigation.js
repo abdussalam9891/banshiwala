@@ -95,7 +95,7 @@ export const FOOTER_NAVIGATION = {
 
     {
       label: "Terms",
-      href: "/pages/terms.html",
+      href: "/pages/terms-and-conditions.html",
     },
   ],
 };

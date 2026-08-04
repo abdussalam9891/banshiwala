@@ -64,7 +64,6 @@ export function initAuthModal() {
 
 
 export function openAuthModal(type = "timer") {
-
   const data =
     AUTH_MODAL_DATA[type] ||
     AUTH_MODAL_DATA.timer;
@@ -74,27 +73,27 @@ export function openAuthModal(type = "timer") {
 
   if (!modal) return;
 
-  document
-    .getElementById("authModalTitle")
-    .textContent = data.title;
+  // Content
+  document.getElementById(
+    "authModalTitle"
+  ).textContent = data.title;
 
-  document
-    .getElementById("authModalSubtitle")
-    .textContent = data.subtitle;
+  document.getElementById(
+    "authModalSubtitle"
+  ).textContent = data.subtitle;
 
   // Icon
-
-  document
-    .getElementById("authModalIcon")
-    .setAttribute(
-      "data-lucide",
-      data.icon
+  const icon =
+    document.getElementById(
+      "authModalIcon"
     );
 
-   
+  icon.setAttribute(
+    "data-lucide",
+    data.icon
+  );
 
-  // Primary
-
+  // Primary Button
   const primary =
     document.getElementById(
       "authPrimaryButton"
@@ -106,8 +105,7 @@ export function openAuthModal(type = "timer") {
   primary.href =
     data.primaryButton.href;
 
-  // Secondary
-
+  // Secondary Button
   const secondary =
     document.getElementById(
       "authSecondaryButton"
@@ -119,31 +117,36 @@ export function openAuthModal(type = "timer") {
   secondary.href =
     data.secondaryButton.href;
 
+  // Show modal
   modal.classList.remove("hidden");
 
-  // Re-render icons after dynamic HTML injection
+  // Re-render Lucide icons
   window.lucide?.createIcons();
 
   requestAnimationFrame(() => {
-
-    document
-      .getElementById("authOverlay")
-      .classList.add("opacity-100");
-
-    document
-      .getElementById("authDialog")
-      .classList.remove(
-        "opacity-0",
-        "scale-[0.96]"
+    const overlay =
+      document.getElementById(
+        "authOverlay"
       );
 
-    document
-      .getElementById("authDialog")
-      .classList.add(
-        "opacity-100",
-        "scale-100"
+    const dialog =
+      document.getElementById(
+        "authDialog"
       );
 
+    overlay.classList.add(
+      "opacity-100"
+    );
+
+    dialog.classList.remove(
+      "opacity-0",
+      "scale-95"
+    );
+
+    dialog.classList.add(
+      "opacity-100",
+      "scale-100"
+    );
   });
 
   document.body.classList.add(
@@ -152,27 +155,40 @@ export function openAuthModal(type = "timer") {
 }
 
 export function closeAuthModal() {
-  const modal = document.getElementById("authModal");
+  const modal =
+    document.getElementById(
+      "authModal"
+    );
+
+  if (!modal) return;
 
   const overlay =
-    document.getElementById("authOverlay");
+    document.getElementById(
+      "authOverlay"
+    );
 
   const dialog =
-    document.getElementById("authDialog");
+    document.getElementById(
+      "authDialog"
+    );
 
-  overlay.classList.remove("opacity-100");
-
-  dialog.classList.remove(
-    "scale-100",
+  overlay.classList.remove(
     "opacity-100"
   );
 
-  dialog.classList.add(
-    "scale-95",
-    "opacity-0"
+  dialog.classList.remove(
+    "opacity-100",
+    "scale-100"
   );
 
-  document.body.classList.remove("overflow-hidden");
+  dialog.classList.add(
+    "opacity-0",
+    "scale-95"
+  );
+
+  document.body.classList.remove(
+    "overflow-hidden"
+  );
 
   setTimeout(() => {
     modal.classList.add("hidden");
