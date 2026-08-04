@@ -57,6 +57,7 @@ lg:gap-8
       <img
   src="/src/assets/images/hero5.jpg"
   alt="Banshiwala Sterling Silver"
+  loading="lazy"
 
   class="
     w-full

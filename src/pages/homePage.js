@@ -23,6 +23,7 @@ export function initHomePage() {
 
   if (!container) return;
 
+  // Critical, above-the-fold — runs immediately
   initHero();
 
   // Announcement after Hero
@@ -32,41 +33,27 @@ export function initHomePage() {
     announcement.innerHTML = createAnnouncementBar();
   }
 
-
-
-
-
-// customize jewellery floating btn
+  // customize jewellery floating btn
   const buttonContainer = document.getElementById("customizeJewellery");
 
-if (buttonContainer) {
-  buttonContainer.innerHTML =
-    createCustomizeJewelleryButton();
-}
+  if (buttonContainer) {
+    buttonContainer.innerHTML = createCustomizeJewelleryButton();
+  }
 
-const drawerContainer = document.getElementById(
-  "customizeJewelleryDrawer"
-);
+  const drawerContainer = document.getElementById(
+    "customizeJewelleryDrawer"
+  );
 
-if (drawerContainer) {
-  drawerContainer.innerHTML =
-     createCustomizeJewelleryModal();
-}
-
-
-
-
-
-
-
-
-
-
+  if (drawerContainer) {
+    drawerContainer.innerHTML = createCustomizeJewelleryModal();
+  }
 
   container.innerHTML = createHomeFaq();
 
   initHomeAccordion();
 
+  // Below-the-fold sections — deferred so hero/navbar aren't
+  // competing with these for the main thread on first paint
   const modules = [
     ["initCollections", initCollections],
     ["initShowcase", initShowcase],
@@ -77,11 +64,19 @@ if (drawerContainer) {
     ["initNewsletterSection", initNewsletterSection],
   ];
 
-  modules.forEach(([name, fn]) => {
-    try {
-      fn();
-    } catch (err) {
-      console.error(`[initHomePage] ${name} failed:`, err);
-    }
-  });
+  const runDeferred = () => {
+    modules.forEach(([name, fn]) => {
+      try {
+        fn();
+      } catch (err) {
+        console.error(`[initHomePage] ${name} failed:`, err);
+      }
+    });
+  };
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(runDeferred);
+  } else {
+    setTimeout(runDeferred, 0);
+  }
 }

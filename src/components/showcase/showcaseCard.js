@@ -255,6 +255,7 @@ w-full
     <img
       src="${images.front}"
       alt="${product.name}"
+      loading="lazy" 
 
       class="
         absolute
@@ -283,6 +284,7 @@ w-full
     <img
       src="${images.back}"
       alt="${product.name}"
+      loading="lazy"
       onerror="this.onerror=null;this.src='${images.front}'"
 
       class="
@@ -348,7 +350,7 @@ w-full
 
   </div>
 
-    
+
   <!-- PRODUCT INFO -->
 
   <div

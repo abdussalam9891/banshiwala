@@ -132,6 +132,7 @@ function createDot(testimonial, index) {
       <img
         src="${testimonial.image}"
         alt=""
+        loading="lazy"
         class="h-14 w-14 rounded-full object-cover"
       />
     </button>

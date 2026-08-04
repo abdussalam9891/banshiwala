@@ -21,6 +21,7 @@ export function createHeroSlides() {
           src="${slide.image}"
           alt="${slide.title.replace(/\n/g, " ")}"
           loading="${index === 0 ? "eager" : "lazy"}"
+          fetchpriority="${index === 0 ? "high" : "auto"}"
           draggable="false"
           class="
             hero-image

@@ -14,7 +14,7 @@ export function createCollectionCard(collection) {
       rounded-sm
 
       reveal
-       
+
 
 
 
@@ -41,6 +41,7 @@ export function createCollectionCard(collection) {
       <img
         src="${collection.image}"
         alt="${collection.title}"
+        loading="lazy"
 
         class="
           h-full
