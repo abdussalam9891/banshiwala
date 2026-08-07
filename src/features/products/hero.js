@@ -114,8 +114,8 @@ sm:px-6
 lg:px-8
 xl:px-10
 
-py-20
-lg:py-28
+py-14
+lg:py-14
 "
 >
 

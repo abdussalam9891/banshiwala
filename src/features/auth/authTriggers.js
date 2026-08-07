@@ -1,8 +1,12 @@
 
 import { createAuthModal } from "./authModal.js";
 import { AUTH_MODAL_DATA } from "./authModalData.js";
+import { isAuthPage } from "../../utils/isAuthPage.js";
 
 let initialized = false;
+
+
+
 
 export function initAuthModal() {
   if (initialized) return;
@@ -64,6 +68,12 @@ export function initAuthModal() {
 
 
 export function openAuthModal(type = "timer") {
+
+
+   if (isAuthPage()) return;
+
+
+
   const data =
     AUTH_MODAL_DATA[type] ||
     AUTH_MODAL_DATA.timer;

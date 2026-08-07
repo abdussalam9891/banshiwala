@@ -589,7 +589,7 @@ export function createCustomizeJewelleryForm() {
           border-[#D8D8D8]
 
           px-8
-          py-12
+          py-8
 
           text-center
 

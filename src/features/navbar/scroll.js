@@ -33,21 +33,18 @@ export function initScroll() {
         "border-white/10"
       );
 
-      // Only About / Contact / Privacy need black -> white
+      // Only pages that start with dark text
       if (theme === "dark") {
         navbarItems.forEach((item) => {
           item.classList.remove(
             "text-[#181818]",
-            "text-[#181818]/90"
-          );
-
-          item.classList.add(
-            "text-white",
+            "text-[#181818]/90",
+            "hover:bg-black/5",
             "hover:bg-white/20"
           );
 
-          item.classList.remove(
-            "hover:bg-black/5"
+          item.classList.add(
+            "text-white"
           );
         });
       }
@@ -68,12 +65,12 @@ export function initScroll() {
         navbarItems.forEach((item) => {
           item.classList.remove(
             "text-white",
-            "hover:bg-white/20"
+            "hover:bg-white/20",
+            "hover:bg-black/5"
           );
 
           item.classList.add(
-            "text-[#181818]",
-            "hover:bg-black/5"
+            "text-[#181818]/90"
           );
         });
       }
@@ -89,9 +86,13 @@ export function initScroll() {
     }
   }
 
-  window.addEventListener("scroll", handleScroll, {
-    passive: true,
-  });
+  window.addEventListener(
+    "scroll",
+    handleScroll,
+    {
+      passive: true,
+    }
+  );
 
   updateNavbar();
 }

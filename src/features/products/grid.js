@@ -44,7 +44,7 @@ function createEmptyState() {
   return `
 <section
 class="
-py-24
+py-14
 
 flex
 flex-col
@@ -183,6 +183,10 @@ ${visibleProducts
 
 </div>
 `;
+
+
+
+ window.lucide?.createIcons();
 
   // 9. Update Hero Count
  updateHeroCount();

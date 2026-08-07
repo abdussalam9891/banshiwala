@@ -3,64 +3,114 @@ import { renderShowcase } from "./renderShowcase.js";
 let activeTab = "trending";
 
 export function initShowcaseTabs() {
-  const tabsContainer = document.getElementById("showcaseTabs");
-  const productsContainer = document.getElementById("showcaseProducts");
+  const tabsContainer =
+    document.getElementById("showcaseTabs");
+
+  const productsContainer =
+    document.getElementById("showcaseProducts");
 
   if (!tabsContainer || !productsContainer) return;
 
   tabsContainer.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-tab]");
+
+    const button =
+      event.target.closest("[data-tab]");
 
     if (!button) return;
 
-    const selectedTab = button.dataset.tab;
+    const selectedTab =
+      button.dataset.tab;
 
     if (selectedTab === activeTab) return;
 
     activeTab = selectedTab;
 
-    // Active Button
-    tabsContainer.querySelectorAll(".showcase-tab").forEach((tab) => {
-      tab.classList.remove(
-        "bg-[#111111]",
-        "text-white",
-        "border-[#111111]"
-      );
+    // Reset all tabs
 
-      tab.classList.add(
-        "bg-white",
-        "text-[#444]",
-        "border-[#E5E5E5]"
-      );
-    });
+    tabsContainer
+      .querySelectorAll(".showcase-tab")
+      .forEach((tab) => {
+
+        tab.classList.remove(
+          "text-[#181818]"
+        );
+
+        tab.classList.add(
+          "text-[#8A8A8A]"
+        );
+
+        const underline =
+          tab.querySelector("span");
+
+        if (underline) {
+
+          underline.classList.remove(
+            "w-full",
+            "opacity-100"
+          );
+
+          underline.classList.add(
+            "w-0",
+            "opacity-0"
+          );
+
+        }
+
+      });
+
+    // Active tab
 
     button.classList.remove(
-      "bg-white",
-      "text-[#444]",
-      "border-[#E5E5E5]"
+      "text-[#8A8A8A]"
     );
 
     button.classList.add(
-      "bg-[#111111]",
-      "text-white",
-      "border-[#111111]"
+      "text-[#181818]"
     );
 
-    // Fade Out
-    productsContainer.classList.add("opacity-0");
+    const activeUnderline =
+      button.querySelector("span");
+
+    if (activeUnderline) {
+
+      activeUnderline.classList.remove(
+        "w-0",
+        "opacity-0"
+      );
+
+      activeUnderline.classList.add(
+        "w-full",
+        "opacity-100"
+      );
+
+    }
+
+    // Fade products
+
+    productsContainer.classList.add(
+      "opacity-0"
+    );
 
     setTimeout(() => {
+
       renderShowcase(activeTab);
 
       requestAnimationFrame(() => {
-        // Reset scroll position
+
         productsContainer.scrollLeft = 0;
 
-        // Notify carousel that content changed
-        productsContainer.dispatchEvent(new Event("scroll"));
+        productsContainer.dispatchEvent(
+          new Event("scroll")
+        );
 
-        productsContainer.classList.remove("opacity-0");
+        productsContainer.classList.remove(
+          "opacity-0"
+        );
+
       });
+
     }, 180);
+
   });
+
 }

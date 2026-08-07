@@ -1,3 +1,5 @@
+
+
 @import "../features/animations/animations.css";
 @import "../components/marquee/marquee.css";
 @import "../components/announcement/announcement.css";
@@ -20,4 +22,90 @@
 
 .navbar-dark {
   color: #fff;
+}
+
+
+
+
+
+
+
+/* auth pages  */
+@keyframes authZoom {
+
+  from {
+
+    transform: scale(1.05);
+
+  }
+
+  to {
+
+    transform: scale(1.12);
+
+  }
+
+}
+
+.animate-authZoom {
+
+  animation: authZoom 18s ease-in-out infinite alternate;
+
+}
+
+@keyframes authFade {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(24px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+.animate-authFade {
+
+  animation: authFade .9s ease;
+
+}
+
+
+
+
+@keyframes fadeSlide {
+
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+}
+
+.auth-text-animation {
+  animation: fadeSlide .6s ease;
 }

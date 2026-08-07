@@ -6,8 +6,8 @@ export function createCraftsmanshipSection() {
 
     bg-white
 
-    py-14
-    lg:py-20
+    py-8
+    lg:py-14
   "
 >
 

@@ -7,166 +7,210 @@ export function createShowcaseSection() {
     reveal
     reveal-up
 
-    py-14
-    lg:py-18
-
     bg-white
+
+    py-4
+    lg:py-6
   "
 >
 
- <div
-  class="
-    max-w-[1600px]
+  <div
+    class="
+      mx-auto
 
-    mx-auto
+      max-w-[1600px]
 
-    px-4
-    sm:px-6
-    lg:px-8
-    xl:px-10
-  "
->
+      px-5
+      lg:px-8
+      xl:px-10
+    "
+  >
 
     <!-- Heading -->
 
-    <div
-      class="
-        flex
-        flex-col
-
-        items-center
-
-        text-center
-      "
-    >
-
-
-
+    <div class="text-center">
 
       <h2
-        class="
-          mt-4
-
-          font-serif
-
-          text-4xl
-          lg:text-5xl
-
-          text-[#1A1A1A]
-
-          leading-tight
-        "
-      >
-        Our Showcase
-      </h2>
+  class="
 
 
+    font-serif
 
-    </div>
+    text-[38px]
+    md:text-[48px]
+    lg:text-[58px]
 
-    <!-- Tabs -->
+    italic
 
-    <div
-      id="showcaseTabs"
+    tracking-[-0.03em]
 
-      class="
-        mt-8
-
-        flex
-        justify-center
-
-        gap-3
-        lg:gap-5
-
-        flex-wrap
-      "
-    >
-
-      ${SHOWCASE_TABS.map(
-        (tab, index) => `
-<button
-
-data-tab="${tab.id}"
-
-class="
-showcase-tab
-
-px-6
-lg:px-7
-
-py-3
-
-rounded-2xl
-
-border
-
-transition-all
-duration-300
-
-${
-  index === 0
-    ? "bg-[#111111] text-white border-[#111111] hover:border-[#A07936]"
-    : "bg-white text-[#444] border-[#E5E5E5] hover:border-[#A07936]  "
-}
-
-"
-
+    text-[#181818]
+  "
 >
-
-${tab.label}
-
-</button>
-`
-      ).join("")}
+  Our Showcase
+</h2>
 
     </div>
 
-    <!-- Products -->
-
- <div class="relative mt-6">
 
 
-
-
-
-  <!-- Products -->
+  <!-- Tabs -->
 
 <div
-  id="showcaseProducts"
-
+  id="showcaseTabs"
   class="
+    mt-4
+    lg:mt-4
+
     flex
 
-    gap-5
-    lg:gap-7
-    xl:gap-8
+    justify-start
+    lg:justify-center
+
+    gap-6
+    lg:gap-12
 
     overflow-x-auto
 
-    scroll-smooth
-
-    snap-x
-    snap-mandatory
-
-    pt-5
-pb-4
+    whitespace-nowrap
 
     no-scrollbar
 
-    transition-opacity
-    duration-200
-
-
+    px-1
+    sm:px-4
+    lg:px-0
   "
 >
+
+  ${SHOWCASE_TABS.map(
+    (tab, index) => `
+<button
+
+  type="button"
+
+  data-tab="${tab.id}"
+
+  class="
+    showcase-tab
+    group
+
+    relative
+
+    flex-shrink-0
+
+    pb-3
+
+    font-sans
+
+    text-[13px]
+    sm:text-[14px]
+    lg:text-[15px]
+
+    font-medium
+
+    tracking-normal
+    lg:tracking-[0.18em]
+
+    lg:uppercase
+
+    transition-colors
+    duration-300
+
+    ${
+      index === 0
+        ? "text-[#181818]"
+        : "text-[#8A8A8A] hover:text-[#181818]"
+    }
+  "
+
+>
+
+  ${tab.label}
+
+  <span
+    class="
+      absolute
+
+      left-0
+      bottom-0
+
+      h-[2px]
+
+      rounded-full
+
+      bg-[#A07936]
+
+      transition-all
+      duration-500
+
+      ${
+        index === 0
+          ? "w-full opacity-100"
+          : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+      }
+    "
+  ></span>
+
+</button>
+`
+  ).join("")}
+
 </div>
+
+
+    <!-- Divider -->
+
+    <div
+      class="
+        mt-6
+
+        h-px
+
+        bg-[#EFE8DD]
+      "
+    ></div>
+
+    <!-- Products -->
+
+    <div class="relative mt-12">
+
+      <div
+        class="
+          overflow-visible
+
+          pt-3
+          pb-6
+        "
+      >
+
+        <div
+
+          id="showcaseProducts"
+
+          class="
+            flex
+
+            gap-8
+
+            overflow-x-auto
+            overflow-y-visible
+
+            scroll-smooth
+
+            snap-x
+            snap-mandatory
+
+            no-scrollbar
+
+            px-1
+          "
+        ></div>
+
+      </div>
+
+    </div>
 
   </div>
-
-</div>
-
-
-
 
 </section>
 `;

@@ -1,4 +1,4 @@
-import { createSocialLogin } from "./socialLogin.js";
+ 
 
 export function createLoginForm() {
   return `
@@ -6,7 +6,7 @@ export function createLoginForm() {
   id="loginForm"
 
   class="
-    space-y-7
+    space-y-3
   "
 >
 
@@ -14,33 +14,18 @@ export function createLoginForm() {
 
   <div>
 
-    <label
-      for="email"
-
-      class="
-        mb-3
-        block
-
-        text-sm
-        font-medium
-
-        text-[#181818]
-      "
-    >
-      Email Address
-    </label>
-
     <input
       id="email"
       name="email"
 
       type="email"
 
-      placeholder="abc@example.com"
+      placeholder="Email Address *"
 
       autocomplete="email"
 
       class="
+        h-10
         w-full
 
         rounded-2xl
@@ -50,10 +35,11 @@ export function createLoginForm() {
 
         bg-white
 
-        px-5
-        py-4
+        px-4
 
-        text-[15px]
+        text-[14px]
+
+        placeholder:text-[#999]
 
         outline-none
 
@@ -74,32 +60,19 @@ export function createLoginForm() {
 
     <div
       class="
-        mb-3
+        mb-1
 
         flex
         items-center
-        justify-between
+        justify-end
       "
     >
-
-      <label
-        for="password"
-
-        class="
-          text-sm
-          font-medium
-
-          text-[#181818]
-        "
-      >
-        Password
-      </label>
 
       <a
         href="/pages/forgotPassword.html"
 
         class="
-          text-sm
+          text-[13px]
 
           text-[#A07936]
 
@@ -117,16 +90,18 @@ export function createLoginForm() {
 
       <input
 
-        id="password"
+
         name="password"
 
         type="password"
 
-        placeholder="Enter your password"
+        placeholder="Password *"
 
         autocomplete="current-password"
 
         class="
+        password-input
+          h-10
           w-full
 
           rounded-2xl
@@ -136,11 +111,12 @@ export function createLoginForm() {
 
           bg-white
 
-          px-5
-          py-4
-          pr-14
+          px-4
+          pr-11
 
-          text-[15px]
+          text-[14px]
+
+          placeholder:text-[#999]
 
           outline-none
 
@@ -153,17 +129,16 @@ export function createLoginForm() {
         "
       >
 
-      <!-- Password Toggle -->
-
       <button
 
-        id="togglePassword"
+
 
         type="button"
 
         class="
+        password-toggle
           absolute
-          right-5
+          right-3
           top-1/2
 
           -translate-y-1/2
@@ -178,7 +153,7 @@ export function createLoginForm() {
 
         <i
           data-lucide="eye"
-          class="h-5 w-5"
+          class="h-4 w-4"
         ></i>
 
       </button>
@@ -187,15 +162,15 @@ export function createLoginForm() {
 
   </div>
 
-  <!-- Remember -->
+    <!-- Remember -->
 
   <label
     class="
       flex
       items-center
-      gap-3
+      gap-2
 
-      text-sm
+      text-[13px]
 
       text-[#666]
     "
@@ -228,7 +203,10 @@ export function createLoginForm() {
       relative
 
       flex
+
+      h-10
       w-full
+
       items-center
       justify-center
 
@@ -238,14 +216,12 @@ export function createLoginForm() {
 
       bg-[#181818]
 
-      py-4
-
-      text-sm
+      text-[13px]
       font-medium
 
       uppercase
 
-      tracking-[0.28em]
+      tracking-[0.18em]
 
       text-white
     "
@@ -280,17 +256,92 @@ export function createLoginForm() {
 
   </button>
 
-  ${createSocialLogin()}
+<!-- Google -->
+
+<button
+  id="googleLoginBtn"
+  type="button"
+  class="
+    group
+    mt-5
+
+    flex
+    h-10
+    w-full
+
+    items-center
+    justify-center
+
+    gap-3
+
+    rounded-2xl
+
+    border
+    border-[#E8E8E8]
+
+    bg-white
+
+    transition-all
+    duration-300
+
+    hover:border-[#A07936]
+    hover:-translate-y-0.5
+    hover:shadow-lg
+  "
+>
+
+  <svg
+    class="h-4 w-4"
+    viewBox="0 0 48 48"
+  >
+
+    <path
+      fill="#FFC107"
+      d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12S17.4 12 24 12c3 0 5.7 1.1 7.8 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"
+    />
+
+    <path
+      fill="#FF3D00"
+      d="M6.3 14.7l6.6 4.8C14.7 15 19 12 24 12c3 0 5.7 1.1 7.8 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.6 8.3 6.3 14.7z"
+    />
+
+    <path
+      fill="#4CAF50"
+      d="M24 44c5.2 0 10-2 13.6-5.3l-6.3-5.3C29.3 35.4 26.8 36 24 36c-5.3 0-9.7-3.3-11.3-8H6.2C9.5 39.5 16.1 44 24 44z"
+    />
+
+    <path
+      fill="#1976D2"
+      d="M43.6 20.5H42V20H24v8h11.3c-1.1 3-3.2 5.4-6 6.9l6.3 5.3C39.2 37.2 44 31.2 44 24c0-1.3-.1-2.3-.4-3.5z"
+    />
+
+  </svg>
+
+  <span
+    class="
+      text-[14px]
+      font-medium
+
+      text-[#181818]
+
+      transition-colors
+      duration-300
+
+      group-hover:text-[#A07936]
+    "
+  >
+    Continue with Google
+  </span>
+
+</button>
 
   <!-- Register -->
 
   <p
     class="
-      pt-2
-
       text-center
 
-      text-[15px]
+      text-[13px]
 
       text-[#666]
     "

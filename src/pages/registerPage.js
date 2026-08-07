@@ -11,5 +11,7 @@ export function loadRegisterPage() {
   container.innerHTML =
     createRegisterPage();
 
+    window.lucide?.createIcons();
+
   initRegister();
 }

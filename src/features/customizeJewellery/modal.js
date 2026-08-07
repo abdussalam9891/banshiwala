@@ -1,3 +1,5 @@
+ 
+
 function openModal() {
   const modal = document.getElementById("customizeModal");
   const panel = document.getElementById("customizePanel");
@@ -16,6 +18,8 @@ function openModal() {
   });
 
   document.documentElement.classList.add("overflow-hidden");
+
+
 }
 
 function closeModal() {

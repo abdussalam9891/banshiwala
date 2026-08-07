@@ -11,7 +11,7 @@ export function createHomeFaq() {
 <section
   class="
     bg-white
-    py-24
+    py-8
   "
 >
 

@@ -21,7 +21,7 @@ export function createCustomizeJewelleryButton() {
 
     bg-[#181818]
 
-    px-3
+    px-1
     py-5
 
     text-white
@@ -61,7 +61,7 @@ export function createCustomizeJewelleryButton() {
       [writing-mode:vertical-rl]
       rotate-180
 
-      text-[11px]
+      text-[10px]
       font-medium
       uppercase
       tracking-[0.35em]

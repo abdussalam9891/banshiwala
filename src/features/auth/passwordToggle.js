@@ -1,29 +1,40 @@
 export function initPasswordToggle() {
-  const button =
-    document.getElementById("togglePassword");
+  const buttons =
+    document.querySelectorAll(".password-toggle");
 
-  const password =
-    document.getElementById("password");
+  if (!buttons.length) return;
 
-  if (!button || !password) return;
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
 
-  button.addEventListener("click", () => {
-    const isHidden =
-      password.type === "password";
+      const wrapper =
+        button.closest(".relative");
 
-    password.type =
-      isHidden ? "text" : "password";
+      if (!wrapper) return;
 
-    const icon =
-      button.querySelector("i");
+      const input =
+        wrapper.querySelector(".password-input");
 
-    if (!icon) return;
+      if (!input) return;
 
-    icon.setAttribute(
-      "data-lucide",
-      isHidden ? "eye-off" : "eye"
-    );
+      const icon =
+        button.querySelector("i");
 
-    window.lucide?.createIcons();
+      const isHidden =
+        input.type === "password";
+
+      input.type =
+        isHidden ? "text" : "password";
+
+      if (icon) {
+        icon.setAttribute(
+          "data-lucide",
+          isHidden ? "eye-off" : "eye"
+        );
+
+        window.lucide?.createIcons();
+      }
+
+    });
   });
 }

@@ -3,11 +3,10 @@ import { createRegisterForm } from "./registerForm.js";
 
 export function createRegisterPage() {
   return createAuthLayout({
+    title: "Create Account",
 
-
-    title: "Create Your Account",
-
-     
+    description:
+      "Join Banshiwala and start shopping.",
 
     form: createRegisterForm(),
   });

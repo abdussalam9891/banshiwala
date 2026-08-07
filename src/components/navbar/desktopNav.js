@@ -23,10 +23,10 @@ export function createDesktopNav(
       ? "text-[#181818]/90"
       : "text-white/90";
 
-  const hoverBg =
-    theme === "dark"
-      ? "hover:bg-black/5"
-      : "hover:bg-white/5";
+  // const hoverBg =
+  //   theme === "dark"
+  //     ? "hover:bg-black/5"
+  //     : "hover:bg-white/5";
 
 
 
@@ -231,7 +231,7 @@ export function createDesktopNav(
           rounded-full
           navbar-text
           ${textColor}
-${hoverBg}
+
           transition-all
           duration-300
 
@@ -256,7 +256,7 @@ ${hoverBg}
           rounded-full
           navbar-text
           ${textColor}
-${hoverBg}
+
           transition-all
           duration-300
 
@@ -303,7 +303,7 @@ ${hoverBg}
           rounded-full
           navbar-text
           ${textColor}
-${hoverBg}
+
           transition-all
           duration-300
 
@@ -364,7 +364,7 @@ ${hoverBg}
 
       navbar-text
       ${textColor}
-      ${hoverBg}
+
 
       transition-all
       duration-300

@@ -15,8 +15,9 @@ export function createCustomizeJewelleryModal() {
     items-center
     justify-center
 
-    p-5
-    md:p-8
+    p-0
+    sm:p-5
+    lg:p-8
   "
 >
 
@@ -30,7 +31,7 @@ export function createCustomizeJewelleryModal() {
       inset-0
 
       bg-black/70
-      backdrop-blur-[3px]
+      backdrop-blur-[5px]
 
       opacity-0
 
@@ -49,24 +50,33 @@ export function createCustomizeJewelleryModal() {
       relative
       z-10
 
+      flex
+      flex-col
+
       w-full
-      max-w-4xl
+      max-w-5xl
+
+      max-h-[100dvh]
+      sm:max-h-[92vh]
 
       overflow-hidden
 
-      rounded-lg
+      rounded-none
+      sm:rounded-[28px]
 
-      bg-white
+      border
+      border-[#ECE3D6]
 
-      shadow-[0_40px_120px_rgba(0,0,0,0.35)]
+      bg-[#FCFAF7]
+
+      shadow-[0_40px_120px_rgba(0,0,0,.28)]
 
       opacity-0
-      scale-95
+      scale-[0.96]
 
       transition-all
       duration-500
     "
-
   >
 
     <!-- Close -->
@@ -81,106 +91,118 @@ export function createCustomizeJewelleryModal() {
 
       class="
         absolute
-        right-6
-        top-6
+
+        right-5
+        top-5
+
+        z-30
 
         flex
-        h-11
-        w-11
+
+        h-10
+        w-10
 
         items-center
         justify-center
 
         rounded-full
 
-        bg-[#F5F5F5]
+        border
+        border-[#E6DDD0]
 
-        text-[28px]
-        leading-none
+        bg-white
 
-        text-[#555]
+        text-[#555555]
+
+        shadow-sm
 
         transition-all
         duration-300
 
-        hover:bg-[#A07936]
+        hover:border-[#A07936]
+        hover:bg-[#181818]
         hover:text-white
       "
-
     >
-      ×
+
+      <i
+        data-lucide="x"
+        class="h-5 w-5"
+      ></i>
+
     </button>
 
     <!-- Header -->
 
     <div
       class="
+        relative
+
+        overflow-hidden
+
         border-b
-        border-[#ECECEC]
+        border-[#ECE3D6]
 
-        px-8
-        py-2
+        bg-gradient-to-b
+        from-[#FDFBF8]
+        to-[#FCFAF7]
 
-        md:px-14
+        px-6
+        py-8
+
+        sm:px-10
+        sm:py-10
+
+        lg:px-16
+        lg:py-12
       "
     >
 
 
+      <!-- Heading -->
 
       <h2
         class="
-          mt-1
+          mt-2
+          mb-2
 
           text-center
 
           font-serif
+          italic
 
-          text-4xl
+          text-[34px]
+          sm:text-[46px]
+          lg:text-[60px]
 
           leading-tight
 
-          text-[#181818]
+          tracking-[-0.03em]
 
-          md:text-[58px]
+          text-[#181818]
         "
       >
-        Design Your Dream Piece
+        Design Your Piece
       </h2>
 
 
 
-      <p
-        class="
-          mx-auto
-          mt-2.5
-
-          max-w-2xl
-
-          text-center
-
-          text-[15px]
-          leading-8
-
-          text-[#666]
-        "
-      >
-        Share your vision, and our master craftsmen will create a bespoke sterling silver piece made exclusively for you.
-      </p>
-
     </div>
 
-    <!-- Body -->
+    <!-- Form Area -->
 
     <div
       class="
-        max-h-[65vh]
+        flex-1
 
         overflow-y-auto
 
-        px-8
-        py-4
+        px-6
+        py-8
 
-        md:px-14
+        sm:px-10
+
+        lg:px-16
       "
     >
 

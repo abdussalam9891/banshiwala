@@ -155,6 +155,9 @@
     };
   </script>
 
+
+
+
 </head>
 
 <body
@@ -183,9 +186,21 @@
 
   <main>
 
-        <div
+       <div
   id="heroContainer"
-  class="relative h-screen min-h-[900px] overflow-hidden"
+  class="
+    relative
+
+     h-[68vh]
+  md:h-[65vh]
+  lg:h-[72vh]
+  xl:h-[76vh]
+
+  min-h-[560px]
+  max-h-[820px]
+  
+    overflow-hidden
+  "
 >
   <img
     src="/src/assets/images/hero1.jpg"
@@ -193,71 +208,82 @@
     fetchpriority="high"
     class="absolute inset-0 h-full w-full object-cover"
   />
+
   <div
     class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
   ></div>
 </div>
-       <div id="homeAnnouncement"></div>
+
+<div id="homeAnnouncement"></div>
 
 
 
 
 
-<section class="bg-white py-14">
+<section class="bg-white py-8 lg:py-14">
 
-<div class="mx-auto max-w-7xl px-4 lg:px-6">
+  <div class="mx-auto max-w-[1600px] px-5 lg:px-8 xl:px-10">
 
-<div class="text-center">
+    <div class="text-center">
 
 
 
-<h2
-class="
-mt-4
+      <h2
+        class="
 
-font-serif
 
-text-4xl
-lg:text-5xl
+          font-serif
+          italic
 
-text-[#181818]
-"
->
-Popular Collections
-</h2>
+          text-[40px]
+          md:text-[52px]
+          lg:text-[60px]
 
-<p
-class="
-mx-auto
-mt-5
+          leading-none
 
-max-w-2xl
+          tracking-[-0.03em]
 
-text-[#6B6B6B]
-"
->
-Explore our signature sterling silver collections,
-crafted for timeless everyday style.
-</p>
+          text-[#181818]
+        "
+      >
+        Shop by Category
+      </h2>
 
-</div>
+      <p
+        class="
+          mx-auto
+          mt-4
 
-<div
-id="collectionGrid"
-class="
-mt-16
+          max-w-2xl
 
-grid
+          text-[16px]
+          leading-8
 
-grid-cols-2
-gap-4
+          text-[#6B6B6B]
+        "
+      >
+        Discover handcrafted sterling silver jewelry designed
+        to elevate every occasion with timeless elegance.
+      </p>
 
-md:grid-cols-4
-md:gap-8
-"
-></div>
+    </div>
 
-</div>
+    <div
+      id="collectionGrid"
+      class="
+        mt-12
+
+        grid
+
+        grid-cols-2
+        gap-5
+
+        md:grid-cols-4
+        md:gap-8
+      "
+    ></div>
+
+  </div>
 
 </section>
 

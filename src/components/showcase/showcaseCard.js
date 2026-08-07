@@ -1,199 +1,281 @@
-
 import { getProductImages } from "../../utils/getProductImages.js";
 
 function createStars(rating) {
   return `
-    <div class="flex items-center gap-0.5 text-[#C8963E]">
+<div
+  class="
+    mt-3
 
-      ${Array.from({ length: 5 })
-        .map(
-          (_, index) => `
-            <svg
-              class="w-3 h-3 ${
-                index < Math.round(rating)
-                  ? "fill-current"
-                  : "fill-none stroke-current"
-              }"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-width="1.8"
-                d="M12 17.3L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-              />
-            </svg>
-          `
-        )
-        .join("")}
+    flex
+    items-center
 
-    </div>
-  `;
+    gap-1.5
+lg:gap-2
+  "
+>
+
+  <div
+    class="
+      flex
+      items-center
+
+      gap-0.5
+
+      text-[#C89B3C]
+    "
+  >
+
+    ${Array.from({ length: 5 })
+      .map(
+        (_, index) => `
+<svg
+  class="
+   h-3
+w-3
+
+lg:h-[14px]
+lg:w-[14px]
+
+    ${
+      index < Math.round(rating)
+        ? "fill-current"
+        : "fill-none stroke-current"
+    }
+  "
+
+  viewBox="0 0 24 24"
+>
+
+<path
+stroke-width="1.8"
+d="M12 17.3L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+/>
+
+</svg>
+`
+      )
+      .join("")}
+
+  </div>
+
+  <span
+    class="
+      text-[12px]
+lg:text-[13px]
+
+      text-[#888888]
+    "
+  >
+    ${rating.toFixed(1)}
+  </span>
+
+</div>
+`;
 }
 
-function createBadge(badge) {
-  if (!badge) return "";
+function createDiscount(product) {
 
-  const styles = {
-    BESTSELLER: "bg-[#111111] text-white",
-    NEW: "bg-primary text-white",
-    LIMITED: "bg-[#C8963E] text-white",
-  };
+  if (!product.originalPrice) return "";
+
+  const discount = Math.round(
+    (
+      (product.originalPrice - product.price) /
+      product.originalPrice
+    ) * 100
+  );
+
+  if (discount <= 0) return "";
 
   return `
-    <span
-      class="
-        absolute
+<span
+class="
+absolute
 
-        top-4
-        left-4
+left-3
+top-3
+lg:left-5
+lg:top-5
 
-        z-20
+z-20
 
-        inline-flex
+rounded-full
 
-        items-center
-        justify-center
+border
+border-[#E9DFC8]
 
-        rounded-md
+bg-[#181818]
 
-        px-3
-        py-1.5
+px-2
+py-1
 
-        text-[10px]
+lg:px-3.5
+lg:py-1.5
 
-        font-semibold
+backdrop-blur
 
-        uppercase
+text-[8px]
+lg:text-[10px]
 
-        tracking-[0.22em]
+font-medium
 
-        shadow-[0_4px_12px_rgba(0,0,0,.12)]
+uppercase
 
-        ${styles[badge] || styles.BESTSELLER}
-      "
-    >
-      ${badge}
-    </span>
-  `;
+tracking-[0.16em]
+
+text-white
+
+shadow-[0_8px_20px_rgba(0,0,0,.08)]
+"
+>
+
+${discount}% OFF
+
+</span>
+`;
 }
 
-function createIcon(type, delay = 0) {
-  const icons = {
-    heart: `
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.8"
-        d="M12 21s-7-4.4-9.5-8.3C.4 9.4 2.2 5.5 6.2 5.5c2 0 3.2 1 3.8 2 .6-1 1.8-2 3.8-2 4 0 5.8 3.9 3.7 7.2C19 16.6 12 21 12 21z"
-      />
-    `,
-
-    eye: `
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.8"
-        d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12zm10 3a3 3 0 100-6 3 3 0 000 6z"
-      />
-    `,
-
-    compare: `
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.8"
-        d="M7 7h12M7 7l3-3M7 7l3 3M17 17H5m12 0-3-3m3 3-3 3"
-      />
-    `,
-  };
+function createWishlistButton() {
 
   return `
 <button
-style="transition-delay:${delay}ms"
+
+type="button"
+
+aria-label="Wishlist"
 
 class="
-translate-x-5
-opacity-0
+absolute
 
-transition-all
-duration-500
-ease-[cubic-bezier(0.22,1,0.36,1)]
+right-3
+top-3
 
-group-hover:translate-x-0
-group-hover:opacity-100
+lg:right-5
+lg:top-5
+
+z-20
 
 flex
 
-h-8
-w-8
+h-9
+w-9
 
-sm:h-9
-sm:w-9
+lg:h-10
+lg:w-10
 
 items-center
 justify-center
 
 rounded-full
 
-bg-white
+border
+border-[#EEE7DB]
+
+bg-white/95
 
 text-[#181818]
 
-shadow-[0_8px_20px_rgba(0,0,0,.10)]
+backdrop-blur
 
-hover:bg-primary
-hover:text-white
+shadow-[0_8px_20px_rgba(0,0,0,.08)]
+
+transition-all
+duration-300
+
+hover:-translate-y-1
+
+hover:border-[#C9A45C]
+
+hover:text-[#C9A45C]
+
+hover:shadow-[0_16px_35px_rgba(0,0,0,.12)]
 "
 >
 
-<svg
+<i
+data-lucide="heart"
+
 class="
-h-4
-w-4
+h-[15px]
+w-[15px]
 
-sm:h-5
-sm:w-5
+lg:h-[17px]
+lg:w-[17px]
 "
-fill="none"
-stroke="currentColor"
-viewBox="0 0 24 24"
->
-
-${icons[type]}
-
-</svg>
+></i>
 
 </button>
 `;
 }
 
-export function createShowcaseCard(product,
-    isSlider = true) {
-  const images = getProductImages(product);
+function createCategory(product) {
 
   return `
-<article
- class="
-group
-reveal
+<p
+class="
+text-[11px]
 
-${isSlider
-? `
+font-medium
+
+uppercase
+
+tracking-[0.28em]
+
+text-[#A07936]
+"
+>
+
+${(product.category || "Jewellery").toUpperCase()}
+
+</p>
+`;
+}
+
+
+
+export function createShowcaseCard(
+  product,
+  isSlider = true
+) {
+
+  const images =
+    getProductImages(product);
+
+  return `
+
+<a
+
+href="/pages/product-details.html?id=${product.id}"
+
+class="
+group
+
+block
+
+${
+
+isSlider
+?
+`
 flex-shrink-0
+
 w-[72%]
 sm:w-[48%]
 md:w-[34%]
 lg:w-[24%]
 xl:w-[21%]
+
 snap-start
 `
-: `
+:
+`
 w-full
 `
+
 }
 "
 >
 
-  <!-- IMAGE CARD -->
+  <!-- Image Card -->
 
   <div
     class="
@@ -201,215 +283,192 @@ w-full
 
       overflow-hidden
 
-      rounded-sm
-      sm:rounded-sm
+      rounded-2xl
+lg:rounded-[26px]
 
-      bg-[#FAF8F8]
+aspect-square
+lg:aspect-[1/1.02]
 
-      aspect-[1/1.18]
-      sm:aspect-[4/5]
+      border
+      border-[#F2ECE3]
+
+      bg-white
+
+      aspect-[1/1.02]
 
       transition-all
       duration-500
-      ease-[cubic-bezier(0.22,1,0.36,1)]
 
-      group-hover:shadow-[0_20px_50px_rgba(0,0,0,.08)]
+
+
+      group-hover:border-[#D6B170]
+
+
     "
   >
 
-    ${createBadge(product.badge)}
+    ${createDiscount(product)}
 
-    <!-- ACTIONS -->
-
-    <div
-      class="
-        absolute
-
-        top-3
-        right-3
-
-        sm:top-4
-        sm:right-4
-
-        z-20
-
-        flex
-
-        flex-col
-
-        gap-1.5
-        sm:gap-2
-      "
-    >
-
-      ${createIcon("heart", 0)}
-
-      ${createIcon("eye", 80)}
-
-      ${createIcon("compare", 160)}
-
-    </div>
-
-    <!-- FRONT IMAGE -->
-
-    <img
-      src="${images.front}"
-      alt="${product.name}"
-      loading="lazy" 
-
-      class="
-        absolute
-
-        inset-0
-
-        w-full
-        h-full
-
-        object-contain
-
-        p-0
+    ${createWishlistButton()}
 
 
-        transition-all
-        duration-500
-        ease-[cubic-bezier(0.22,1,0.36,1)]
 
-        group-hover:opacity-0
-        group-hover:scale-[1.04]
-      "
-    />
+    <!-- Product Image -->
 
-    <!-- BACK IMAGE -->
 
-    <img
-      src="${images.back}"
-      alt="${product.name}"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='${images.front}'"
 
-      class="
-        absolute
+<!-- Front Image -->
 
-        inset-0
+<img
+  src="${images.front}"
+  alt="${product.name}"
+  loading="lazy"
 
-        w-full
-        h-full
+  class="
+    absolute
+    inset-0
 
-        object-contain
+    m-auto
 
-        p-0
+    max-h-[62%]
+max-w-[62%]
 
-        opacity-0
+lg:max-h-[50%]
+lg:max-w-[50%]
 
-        transition-all
-        duration-500
-        ease-[cubic-bezier(0.22,1,0.36,1)]
+    object-contain
 
-        group-hover:opacity-100
-        group-hover:scale-[1.04]
-      "
-    />
+    transition-all
+    duration-700
+    ease-out
 
-    <!-- SOFT GLOW -->
+    opacity-100
+
+    group-hover:opacity-0
+    group-hover:scale-110
+  "
+/>
+
+<!-- Back Image -->
+
+<img
+  src="${images.back}"
+  alt="${product.name}"
+  loading="lazy"
+
+  onerror="this.onerror=null;this.src='${images.front}'"
+
+  class="
+absolute
+inset-0
+
+h-full
+w-full
+
+object-cover
+
+opacity-0
+
+transition-all
+duration-700
+
+group-hover:opacity-100
+group-hover:scale-105
+"
+/>
+
+
+
+    <!-- Bottom Gradient -->
 
     <div
-      class="
-        pointer-events-none
+class="
+absolute
+inset-x-0
+bottom-0
 
-        absolute
-        inset-0
+h-32
 
-        opacity-0
+bg-gradient-to-t
+from-white/80
+via-white/20
+to-transparent
 
-        transition-opacity
-        duration-500
+transition-opacity
+duration-500
 
-        group-hover:opacity-100
-      "
-    >
-
-      <div
-        class="
-          absolute
-
-          inset-x-8
-
-          bottom-2
-
-          h-20
-
-          rounded-full
-
-          bg-white/50
-
-          blur-3xl
-        "
-      ></div>
-
-    </div>
+opacity-100
+group-hover:opacity-0
+"
+></div>
 
   </div>
 
-
-  <!-- PRODUCT INFO -->
+  <!-- Product Info -->
 
   <div
     class="
       mt-4
-      sm:mt-5
-      lg:mt-6
+lg:mt-7
 
-      px-1
+px-0.5
+lg:px-1
     "
   >
 
-    <!-- TITLE -->
+
+
+    <!-- Product Name -->
 
     <h3
       class="
-        text-[15px]
-        sm:text-[16px]
-        lg:text-[18px]
-
-        font-medium
-
-        leading-[1.45]
-
-        tracking-[-0.01em]
-
-        text-[#181818]
+        mt-3
 
         line-clamp-2
+
+        font-serif
+
+        text-[18px]
+sm:text-[20px]
+lg:text-[26px]
+
+leading-tight
+
+min-h-[48px]
+lg:min-h-[68px]
+
+        tracking-[-0.025em]
+
+        text-[#181818]
 
         transition-colors
         duration-300
 
-        group-hover:text-primary
+        group-hover:text-[#A07936]
       "
     >
       ${product.name}
     </h3>
 
-    <!-- PRICE -->
+    <!-- Price -->
 
     <div
       class="
-        mt-3
-        sm:mt-3.5
-        lg:mt-4
+        mt-5
 
         flex
+
         items-end
 
-        gap-2
+        gap-3
       "
     >
 
       <span
         class="
           text-[18px]
-          sm:text-[20px]
-          lg:text-[22px]
+sm:text-[22px]
+lg:text-[26px]
 
           font-semibold
 
@@ -421,60 +480,148 @@ w-full
         ₹${product.price.toLocaleString("en-IN")}
       </span>
 
-      <span
-        class="
-          mb-0.5
+      ${
+        product.originalPrice
+          ? `
+<span
+class="
+mb-[2px]
 
-          text-[12px]
-          sm:text-[13px]
-          lg:text-[15px]
+text-[12px]
+sm:text-[13px]
+lg:text-[15px]
 
-          text-[#9A9A9A]
+text-[#9A9A9A]
 
-          line-through
-        "
-      >
-        ₹${product.originalPrice.toLocaleString("en-IN")}
-      </span>
+line-through
+"
+>
+
+₹${product.originalPrice.toLocaleString("en-IN")}
+
+</span>
+`
+          : ""
+      }
 
     </div>
 
-    <!-- REVIEWS -->
+    <!-- Reviews -->
+
+    ${createStars(product.rating)}
+
+    <!-- Divider -->
 
     <div
       class="
-        mt-2.5
-        sm:mt-3
+        mt-4
+lg:mt-6
+
+        h-px
+
+        w-full
+
+        bg-[#EFE8DE]
+      "
+    ></div>
+
+    <!-- Footer -->
+
+    <div
+      class="
+        mt-4
+lg:mt-5
 
         flex
 
         items-center
-
-        gap-1.5
+        justify-between
       "
     >
 
-      ${createStars(product.rating)}
-
       <span
         class="
-          text-[11px]
-          sm:text-[12px]
-          lg:text-[13px]
+          hidden
+sm:block
 
-          text-[#777777]
+text-[12px]
+lg:text-[13px]
+
+          text-[#888888]
         "
       >
-        (${product.reviewCount})
+        ${product.reviewCount} Reviews
       </span>
 
+   <span
+class="
+inline-flex
+
+items-center
+
+gap-1
+
+text-[11px]
+sm:text-[12px]
+lg:text-[13px]
+
+font-medium
+
+uppercase
+
+tracking-[0.12em]
+lg:tracking-[0.18em]
+
+text-[#181818]
+
+transition-all
+duration-300
+
+group-hover:text-[#A07936]
+"
+>
+  View
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+
+    fill="none"
+
+    viewBox="0 0 24 24"
+
+    stroke="currentColor"
+
+    class="
+      h-3
+      w-3
+
+      lg:h-4
+      lg:w-4
+
+      transition-transform
+      duration-300
+
+      group-hover:translate-x-1
+    "
+  >
+
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M9 5l7 7-7 7"
+    />
+
+  </svg>
+
+</span>
     </div>
 
   </div>
 
-</article>
+
+  </a>
 
 `;
 
 }
-

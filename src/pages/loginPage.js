@@ -11,5 +11,7 @@ export function loadLoginPage() {
   container.innerHTML =
     createLoginPage();
 
+    window.lucide?.createIcons();
+
   initLogin();
 }

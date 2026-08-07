@@ -74,9 +74,5 @@ export function initHomePage() {
     });
   };
 
-  if ("requestIdleCallback" in window) {
-    requestIdleCallback(runDeferred);
-  } else {
-    setTimeout(runDeferred, 0);
-  }
+  runDeferred();
 }

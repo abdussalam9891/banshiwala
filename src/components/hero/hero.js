@@ -8,13 +8,18 @@ export function createHero() {
       id="hero"
 
       class="
-        relative
+  relative
 
-        h-screen
-        min-h-[900px]
+  h-[68vh]
+  md:h-[65vh]
+  lg:h-[72vh]
+  xl:h-[76vh]
 
-        overflow-hidden
-    "
+  min-h-[560px]
+  max-h-[820px]
+
+  overflow-hidden
+"
     >
 
       <!-- Background Slides -->

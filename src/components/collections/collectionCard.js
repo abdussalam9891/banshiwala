@@ -10,50 +10,70 @@ export function createCollectionCard(collection) {
 
   <div
     class="
-      overflow-hidden
-      rounded-sm
-
       reveal
 
+      overflow-hidden
 
+      rounded-xl
+      lg:rounded-2xl
 
+      border
+      border-[#ECE5D8]
 
       transition-all
       duration-500
 
-      hover:shadow-[0_12px_28px_rgba(0,0,0,.06)]
+      hover:-translate-y-2
+      hover:border-[#C8A35A]
+      hover:shadow-[0_22px_55px_rgba(0,0,0,0.08)]
     "
   >
+
+    <!-- Image -->
 
     <div
       class="
         flex
-        h-[260px]
+
+        aspect-square
+        lg:aspect-[1/1.02]
+
         items-center
         justify-center
 
-        p-2
-        lg:h-[320px]
-        lg:p-4
+        p-3
+        sm:p-4
+        lg:p-8
       "
     >
 
       <img
         src="${collection.image}"
         alt="${collection.title}"
+
         loading="lazy"
+        decoding="async"
 
         class="
-          h-full
-          w-full
+          max-h-[78%]
+          max-w-[78%]
+
+          lg:max-h-full
+          lg:max-w-full
 
           object-contain
           object-center
 
-          transition-transform
+          -translate-y-1
+          lg:translate-y-0
+
+          transition-all
           duration-700
 
           group-hover:scale-105
+          lg:group-hover:scale-110
+
+          group-hover:-translate-y-2
         "
       />
 
@@ -61,32 +81,82 @@ export function createCollectionCard(collection) {
 
   </div>
 
-  <div class="pt-6 text-center">
+  <!-- Content -->
+
+  <div
+    class="
+      pt-4
+      lg:pt-8
+
+      text-center
+    "
+  >
+
+    <div
+      class="
+        mx-auto
+
+        mb-3
+        lg:mb-5
+
+        h-px
+
+        w-10
+        lg:w-12
+
+        bg-[#C8A35A]
+
+        transition-all
+        duration-300
+
+        group-hover:w-20
+      "
+    ></div>
 
     <h3
       class="
         font-serif
 
-        text-2xl
-        lg:text-[2rem]
+        text-[22px]
+        sm:text-[26px]
+        lg:text-[36px]
 
-        tracking-wide
+        italic
+
+        leading-tight
 
         text-[#181818]
+
+        transition-colors
+        duration-300
+
+        group-hover:text-[#A07936]
       "
     >
       ${collection.title}
     </h3>
 
-    <p
+    <div
       class="
         mt-3
+        lg:mt-5
 
-        text-[12px]
+        inline-flex
+
+        items-center
+
+        gap-1.5
+        lg:gap-2
+
+        text-[11px]
+        sm:text-[12px]
+
+        font-medium
 
         uppercase
 
-        tracking-[0.28em]
+        tracking-[0.16em]
+        lg:tracking-[0.28em]
 
         text-[#A07936]
 
@@ -96,8 +166,27 @@ export function createCollectionCard(collection) {
         group-hover:text-[#181818]
       "
     >
+
       ${collection.subtitle}
-    </p>
+
+      <i
+        data-lucide="arrow-up-right"
+        class="
+          h-3
+          w-3
+
+          lg:h-4
+          lg:w-4
+
+          transition-transform
+          duration-300
+
+          group-hover:translate-x-1
+          group-hover:-translate-y-1
+        "
+      ></i>
+
+    </div>
 
   </div>
 

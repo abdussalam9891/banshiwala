@@ -2,129 +2,212 @@ export function createGuestMenu() {
   return `
 <div
   class="
-    p-7
+    w-[340px]
+
+    overflow-hidden
+
+    rounded-[22px]
+
+    border
+    border-[#F3EEE6]
+
+    bg-white
+
+    shadow-[0_20px_50px_rgba(0,0,0,.08)]
   "
 >
 
-  <!-- Icon -->
+  <!-- Login -->
 
-  <div
+  <a
+    href="/pages/login.html"
+
     class="
+      group
+
       flex
-      h-14
-      w-14
 
       items-center
-      justify-center
 
-      rounded-full
+      gap-4
 
-      bg-[#F7F7F7]
+      px-6
+      py-5
 
-      text-[#A07936]
+      transition-all
+      duration-300
+
+      hover:translate-x-1
     "
   >
 
-    <i
-      data-lucide="user"
-      class="h-6 w-6"
-    ></i>
-
-  </div>
-
-  <!-- Heading -->
-
-  <h3
-    class="
-      mt-6
-
-      font-serif
-
-      text-[30px]
-
-      text-[#181818]
-    "
-  >
-    Welcome
-  </h3>
-
-  <p
-    class="
-      mt-3
-
-      text-[15px]
-      leading-7
-
-      text-[#6B6B6B]
-    "
-  >
-    Sign in to access your wishlist,
-    orders and custom jewellery requests.
-  </p>
-
-  <!-- Buttons -->
-
-  <div
-    class="
-      mt-8
-
-      space-y-3
-    "
-  >
-
-    <a
-      href="/pages/login.html"
-
+    <div
       class="
         flex
+
+        h-11
+        w-11
+
         items-center
         justify-center
 
         rounded-full
 
-        bg-[#181818]
+        border
+        border-[#ECE6DA]
 
-        py-3
+        text-[#6D6D6D]
 
-        text-sm
-        font-medium
-        uppercase
-        tracking-[0.25em]
+        transition-all
+        duration-300
 
-        text-white
-
-        transition
-
-        hover:bg-[#A07936]
+        group-hover:border-[#D8BE84]
+        group-hover:text-[#A07936]
       "
     >
-      Sign In
-    </a>
 
-    <a
-      href="/pages/register.html"
+      <i
+        data-lucide="user-round"
 
+        class="
+          h-[18px]
+          w-[18px]
+        "
+      ></i>
+
+    </div>
+
+    <div>
+
+      <p
+        class="
+          text-[17px]
+
+          font-medium
+
+          text-[#181818]
+        "
+      >
+        Log In / Sign Up
+      </p>
+
+      <p
+        class="
+          mt-1
+
+          text-[14px]
+
+          text-[#8A8A8A]
+        "
+      >
+        Access your account
+      </p>
+
+    </div>
+
+  </a>
+
+  <!-- Divider -->
+
+  <div
+    class="
+      mx-6
+
+      h-px
+
+      bg-[#F3EEE6]
+    "
+  ></div>
+
+  <!-- Contact -->
+
+  <a
+    href="/pages/contact.html"
+
+    class="
+      group
+
+      flex
+
+      items-center
+
+      gap-4
+
+      px-6
+      py-5
+
+      transition-all
+      duration-300
+
+      hover:translate-x-1
+    "
+  >
+
+    <div
       class="
         flex
+
+        h-11
+        w-11
+
         items-center
         justify-center
 
-        py-3
+        rounded-full
 
-        text-sm
-        font-medium
+        border
+        border-[#ECE6DA]
 
-        text-[#181818]
+        text-[#6D6D6D]
 
-        transition
+        transition-all
+        duration-300
 
-        hover:text-[#A07936]
+        group-hover:border-[#D8BE84]
+        group-hover:text-[#A07936]
       "
     >
-      Create Account →
-    </a>
 
-  </div>
+      <i
+        data-lucide="headset"
+
+        class="
+          h-[18px]
+          w-[18px]
+        "
+      ></i>
+
+    </div>
+
+    <div>
+
+      <p
+        class="
+          text-[17px]
+
+          font-medium
+
+          text-[#181818]
+        "
+      >
+        Contact Us
+      </p>
+
+      <p
+        class="
+          mt-1
+
+          text-[14px]
+
+          text-[#8A8A8A]
+        "
+      >
+        Need help with an order?
+      </p>
+
+    </div>
+
+  </a>
 
 </div>
 `;

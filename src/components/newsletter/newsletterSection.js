@@ -1,6 +1,6 @@
 export function createNewsletterSection() {
   return `
-<section class="bg-white py-14 lg:py-14">
+<section class="bg-white py-8 lg:py-14">
 
 
 
@@ -14,13 +14,13 @@ export function createNewsletterSection() {
         bg-white
 
         px-5
-        py-5
+
 
         sm:px-8
-        sm:py-5
+
 
         lg:px-5
-        lg:py-5
+
 
 
       "

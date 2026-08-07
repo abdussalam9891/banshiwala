@@ -1,14 +1,19 @@
-import { createTestimonialSpotlight } from "../../components/testimonials/testimonialSpotlight.js";
+import { createTestimonialsSection } from "../../components/testimonials/testimonialSection.js";
+
 import { renderTestimonials } from "./renderTestimonials.js";
-import { initTestimonialAutoplay } from "./autoplay.js";
+
+import { initTestimonialCarousel } from "./carousel.js";
 
 export function initTestimonials() {
-  const container = document.getElementById("testimonials-container"); // wrap your old <section> id with this
+  const container =
+    document.getElementById("testimonials-container");
 
   if (!container) return;
 
-  container.innerHTML = createTestimonialSpotlight();
+  container.innerHTML =
+    createTestimonialsSection();
 
-  renderTestimonials();
-  initTestimonialAutoplay();
+ renderTestimonials();
+
+initTestimonialCarousel();
 }

@@ -1,5 +1,6 @@
 import { isLoggedIn } from "./authState.js";
 import { openAuthModal } from "./authTriggers.js";
+import { isAuthPage } from "../../utils/isAuthPage.js";
 
 const STORAGE_KEY = "banshiwala_guest_prompt";
 
@@ -76,18 +77,17 @@ export function showGuestPrompt(type = "timer") {
 
 }
 
-export function initGuestEngagement() {
 
+
+export function initGuestEngagement() {
   if (isLoggedIn()) return;
+
+  if (isAuthPage()) return;
 
   // if (hasSeenToday()) return;
 
   setTimeout(() => {
-
     showGuestPrompt("timer");
-
     markSeen();
-
-  }, 15000);
-
+  }, 2555000);
 }
